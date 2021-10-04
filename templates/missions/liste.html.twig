@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste de missions{% endblock %}
+
+{% block body %}
+
+ 
+
+        <table class="table">
+            <tbody>
+                {% for Missions in Missions %}
+
+                <tr>
+                    <th>Code</th>
+                    <td>{{ Missions.codeidentification }}</td>
+			    </tr>
+
+                <tr>
+                    <th>Titre</th>
+                    <td>{{ Missions.titre }}</td>
+			    </tr>
+
+                <tr>
+                    <th>Description</th>
+                    <td>{{ Missions.description }}
+                    </td>
+
+                        <td>
+						<a href="{{ path('app_details', {'id': Missions.id}) }}">show</a>
+						
+					</td>
+
+			    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+
+
+{% endblock %}

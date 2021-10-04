@@ -27,11 +27,11 @@ class Typeplanque
     /**
      * @ORM\OneToMany(targetEntity=Planques::class, mappedBy="type")
      */
-    private $planques;
+    private $Planques;
 
     public function __construct()
     {
-        $this->planques = new ArrayCollection();
+        $this->Planques = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -56,13 +56,13 @@ class Typeplanque
      */
     public function getPlanques(): Collection
     {
-        return $this->planques;
+        return $this->Planques;
     }
 
     public function addPlanque(Planques $planque): self
     {
-        if (!$this->planques->contains($planque)) {
-            $this->planques[] = $planque;
+        if (!$this->Planques->contains($planque)) {
+            $this->Planques[] = $planque;
             $planque->setType($this);
         }
 
@@ -71,7 +71,7 @@ class Typeplanque
 
     public function removePlanque(Planques $planque): self
     {
-        if ($this->planques->removeElement($planque)) {
+        if ($this->Planques->removeElement($planque)) {
             // set the owning side to null (unless already changed)
             if ($planque->getType() === $this) {
                 $planque->setType(null);

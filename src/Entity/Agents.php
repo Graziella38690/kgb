@@ -45,19 +45,19 @@ class Agents
     private $missions;
 
     /**
-     * @ORM\ManyToOne(targetEntity=nationalite::class, inversedBy="Agents")
+     * @ORM\ManyToOne(targetEntity=Nationalite::class, inversedBy="Agents")
      */
-    private $nationalite;
+    private $Nationalite;
 
     /**
-     * @ORM\ManyToMany(targetEntity=specialite::class, inversedBy="Agents")
+     * @ORM\ManyToMany(targetEntity=Specialite::class, inversedBy="Agents")
      */
-    private $specialite;
+    private $Specialite;
 
     public function __construct()
     {
         $this->missions = new ArrayCollection();
-        $this->specialite = new ArrayCollection();
+        $this->Specialite = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -140,38 +140,38 @@ class Agents
         return $this;
     }
 
-    public function getNationalite(): ?nationalite
+    public function getNationalite(): ?Nationalite
     {
-        return $this->nationalite;
+        return $this->Nationalite;
     }
 
-    public function setNationalite(?nationalite $nationalite): self
+    public function setNationalite(?Nationalite $Nationalite): self
     {
-        $this->nationalite = $nationalite;
+        $this->Nationalite = $Nationalite;
 
         return $this;
     }
 
     /**
-     * @return Collection|specialite[]
+     * @return Collection|Specialite[]
      */
     public function getSpecialite(): Collection
     {
-        return $this->specialite;
+        return $this->Specialite;
     }
 
-    public function addSpecialite(specialite $specialite): self
+    public function addSpecialite(Specialite $Specialite): self
     {
-        if (!$this->specialite->contains($specialite)) {
-            $this->specialite[] = $specialite;
+        if (!$this->Specialite->contains($Specialite)) {
+            $this->Specialite[] = $Specialite;
         }
 
         return $this;
     }
 
-    public function removeSpecialite(specialite $specialite): self
+    public function removeSpecialite(Specialite $Specialite): self
     {
-        $this->specialite->removeElement($specialite);
+        $this->Specialite->removeElement($Specialite);
 
         return $this;
     }

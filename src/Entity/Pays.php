@@ -25,12 +25,12 @@ class Pays
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity=Missions::class, mappedBy="pays")
+     * @ORM\OneToMany(targetEntity=Missions::class, mappedBy="Pays")
      */
     private $missions;
 
     /**
-     * @ORM\OneToOne(targetEntity=nationalite::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Nationalite::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $Nationalite;
@@ -87,12 +87,12 @@ class Pays
         return $this;
     }
 
-    public function getNationalite(): ?nationalite
+    public function getNationalite(): ?Nationalite
     {
         return $this->Nationalite;
     }
 
-    public function setNationalite(nationalite $Nationalite): self
+    public function setNationalite(Nationalite $Nationalite): self
     {
         $this->Nationalite = $Nationalite;
 

@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BasicController!{% endblock %}
+
+{% block body %}
+<style>
+    .table-bordered  { margin: 1em auto; 
+    max-width: 500px; 
+    width: 100%; 
+    font: 18px/1.5 comic;
+    border-color:transparent;
+}
+    
+</style>
+ 
+
+ 
+
+        <table class="table-bordered">
+            <tbody>
+                {% for Missions in Missions %}
+
+                <tr>
+                    <th>Code</th>
+                    <td>{{ Missions.codeidentification }}</td>
+			    </tr>
+
+                <tr>
+                    <th>Titre</th>
+                    <td>{{ Missions.titre }}</td>
+			    </tr>
+
+                <tr>
+                    <th>Description</th>
+                    <td>{{ Missions.description }}</td>
+			    </tr>
+
+                <tr>
+                    <th>Début</th>
+                    <td>{{Missions.datededebut|date('d/m/Y')}}</td>
+			    </tr>
+
+                <tr>
+                    <th>Fin</th>
+                    <td>{{Missions.datedefin|date('d/m/Y')}}</td>
+			    </tr>
+
+                <tr>
+                    <th>Agent(s)</th>
+                    <td>
+					{% for Agents in Missions.Agents %}
+						<li>{{Agents.nom}}</li>
+					{% endfor %}
+				    </td>
+			    </tr>
+
+                <tr>
+                    <th>Cibles(s)</th>
+                    <td>
+					{% for Cibles in Missions.Cibles %}
+						<li>{{Cibles.nom}}</li>
+					{% endfor %}
+				    </td>
+			    </tr>
+
+                <tr>
+                    <th>Contact(s)</th>
+                    <td>
+					{% for Contacts in Missions.Contacts %}
+						<li>{{Contacts.nom}}</li>
+					{% endfor %}
+				    </td>
+			    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+<a href="{{ path('app_liste') }}">back to list</a>
+
+{% endblock %}
+
+

@@ -25,12 +25,12 @@ class Specialite
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity=Missions::class, mappedBy="specialite")
+     * @ORM\OneToMany(targetEntity=Missions::class, mappedBy="Specialite")
      */
     private $missions;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Agents::class, mappedBy="specialite")
+     * @ORM\ManyToMany(targetEntity=Agents::class, mappedBy="Specialite")
      */
     private $Agents;
 

@@ -45,9 +45,9 @@ class Contacts
     private $missions;
 
     /**
-     * @ORM\ManyToOne(targetEntity=nationalite::class, inversedBy="Contacts")
+     * @ORM\ManyToOne(targetEntity=Nationalite::class, inversedBy="Contacts")
      */
-    private $nationalite;
+    private $Nationalite;
 
     public function __construct()
     {
@@ -134,14 +134,14 @@ class Contacts
         return $this;
     }
 
-    public function getNationalite(): ?nationalite
+    public function getNationalite(): ?Nationalite
     {
-        return $this->nationalite;
+        return $this->Nationalite;
     }
 
-    public function setNationalite(?nationalite $nationalite): self
+    public function setNationalite(?Nationalite $Nationalite): self
     {
-        $this->nationalite = $nationalite;
+        $this->Nationalite = $Nationalite;
 
         return $this;
     }

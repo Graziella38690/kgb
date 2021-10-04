@@ -70,19 +70,19 @@ class Missions
     private $statut;
 
     /**
-     * @ORM\ManyToMany(targetEntity=planques::class, inversedBy="missions")
+     * @ORM\ManyToMany(targetEntity=Planques::class, inversedBy="missions")
      */
     private $planque;
 
     /**
-     * @ORM\ManyToOne(targetEntity=specialite::class, inversedBy="missions")
+     * @ORM\ManyToOne(targetEntity=Specialite::class, inversedBy="missions")
      */
-    private $specialite;
+    private $Specialite;
 
     /**
-     * @ORM\ManyToOne(targetEntity=pays::class, inversedBy="missions")
+     * @ORM\ManyToOne(targetEntity=Pays::class, inversedBy="missions")
      */
-    private $pays;
+    private $Pays;
 
     public function __construct()
     {
@@ -254,14 +254,14 @@ class Missions
     }
 
     /**
-     * @return Collection|planques[]
+     * @return Collection|Planques[]
      */
     public function getPlanque(): Collection
     {
         return $this->planque;
     }
 
-    public function addPlanque(planques $planque): self
+    public function addPlanque(Planques $planque): self
     {
         if (!$this->planque->contains($planque)) {
             $this->planque[] = $planque;
@@ -270,33 +270,33 @@ class Missions
         return $this;
     }
 
-    public function removePlanque(planques $planque): self
+    public function removePlanque(Planques $planque): self
     {
         $this->planque->removeElement($planque);
 
         return $this;
     }
 
-    public function getSpecialite(): ?specialite
+    public function getSpecialite(): ?Specialite
     {
-        return $this->specialite;
+        return $this->Specialite;
     }
 
-    public function setSpecialite(?specialite $specialite): self
+    public function setSpecialite(?Specialite $Specialite): self
     {
-        $this->specialite = $specialite;
+        $this->Specialite = $Specialite;
 
         return $this;
     }
 
-    public function getPays(): ?pays
+    public function getPays(): ?Pays
     {
-        return $this->pays;
+        return $this->Pays;
     }
 
-    public function setPays(?pays $pays): self
+    public function setPays(?Pays $Pays): self
     {
-        $this->pays = $pays;
+        $this->Pays = $Pays;
 
         return $this;
     }

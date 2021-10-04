@@ -35,7 +35,7 @@ class Planques
     private $missions;
 
     /**
-     * @ORM\ManyToOne(targetEntity=typeplanque::class, inversedBy="planques")
+     * @ORM\ManyToOne(targetEntity=Typeplanque::class, inversedBy="Planques")
      * @ORM\JoinColumn(nullable=false)
      */
     private $type;
@@ -108,22 +108,22 @@ class Planques
 
     public function getPays(): ?string
     {
-        return $this->pays;
+        return $this->Pays;
     }
 
-    public function setPays(string $pays): self
+    public function setPays(string $Pays): self
     {
-        $this->pays = $pays;
+        $this->Pays = $Pays;
 
         return $this;
     }
 
-    public function getType(): ?typeplanque
+    public function getType(): ?Typeplanque
     {
         return $this->type;
     }
 
-    public function setType(?typeplanque $type): self
+    public function setType(?Typeplanque $type): self
     {
         $this->type = $type;
 

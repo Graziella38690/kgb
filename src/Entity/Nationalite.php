@@ -25,17 +25,17 @@ class Nationalite
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity=Agents::class, mappedBy="nationalite")
+     * @ORM\OneToMany(targetEntity=Agents::class, mappedBy="Nationalite")
      */
     private $Agents;
 
     /**
-     * @ORM\OneToMany(targetEntity=Cibles::class, mappedBy="nationalite")
+     * @ORM\OneToMany(targetEntity=Cibles::class, mappedBy="Nationalite")
      */
     private $Cibles;
 
     /**
-     * @ORM\OneToMany(targetEntity=Contacts::class, mappedBy="nationalite")
+     * @ORM\OneToMany(targetEntity=Contacts::class, mappedBy="Nationalite")
      */
     private $Contacts;
 
