@@ -50,8 +50,37 @@ class MissionsController extends AbstractController
                 'Missions' => $Missions,
             ]);   
         }     
-
-
+        /**
+         * supprimer une mission
+         * @Route("/missionsremove/{id}", name="app_remove", methods={"GET"})
+         * 
+         
+         * @return Response
+        
+         */
+        public function remove(int $id): Response
+       
+            {
+       
+                /// Entity Manager de Symfony
+        
+                $em = $this->getDoctrine()->getManager();
+        
+                // On récupère la mission qui correspond à l'id passé dans l'URL
+       
+                $Missions = $em->getRepository(Missions::class)->findBy(['id' => $id])[0];
+       
+        
+                // L'article est supprimé
+        
+                $em->remove($Missions);
+        
+                $em->flush();
+        
+        
+                return $this->redirectToRoute('app_liste');
+        
+            }
 
 
 } 

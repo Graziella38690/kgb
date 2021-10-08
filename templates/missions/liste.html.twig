@@ -6,29 +6,26 @@
  
 
         <table class="table">
+        <thead>
+        <tr>
+        <th>Code</th>
+        <th>Titre</th>
+        <th>Description</th>
+        </tr>
+
             <tbody>
                 {% for Missions in Missions %}
 
                 <tr>
-                    <th>Code</th>
-                    <td>{{ Missions.codeidentification }}</td>
-			    </tr>
-
-                <tr>
-                    <th>Titre</th>
+                    <th scope="row">
+                    {{ Missions.codemission }}
+                    </th>
                     <td>{{ Missions.titre }}</td>
-			    </tr>
-
-                <tr>
-                    <th>Description</th>
-                    <td>{{ Missions.description }}
-                    </td>
-
+                    <td>{{ Missions.description }}</td>
                         <td>
 						<a href="{{ path('app_details', {'id': Missions.id}) }}">show</a>
-						
+						<a href="{{ path('app_remove', {'id': Missions.id}) }}">Delete</a>
 					</td>
-
 			    </tr>
                 {% endfor %}
             </tbody>

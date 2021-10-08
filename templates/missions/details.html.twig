@@ -22,7 +22,7 @@
 
                 <tr>
                     <th>Code</th>
-                    <td>{{ Missions.codeidentification }}</td>
+                    <td>{{ Missions.codemission }}</td>
 			    </tr>
 
                 <tr>
@@ -70,7 +70,41 @@
 						<li>{{Contacts.nom}}</li>
 					{% endfor %}
 				    </td>
+                </tr>
+                <tr>
+                    <th>Pays</th>
+                    <td>
+						<li>{{Missions.Pays.nom}}</li>
+				    </td>
+                </tr>
+
+                <tr>
+                    <th>Type</th>
+                    <td>
+						<li>{{Missions.Type.nom}}</li>
+				    </td>
 			    </tr>
+                    <tr>
+                    <th>Statut</th>
+                    <td>
+						<li>{{Missions.Statut.nom}}</li>
+				    </td>
+			    </tr>
+                <tr>
+                    <th>Planque(s)</th>
+                    <td>
+					{% for Planque in Missions.Planque %}
+						<li>{{Planque.adresse}}</li>
+					{% endfor %}
+				    </td>
+                </tr>
+                    <tr>
+                    <th>Spécialitée</th>
+                    <td>
+						<li>{{Missions.Specialite.nom}}</li>
+				    </td>
+
+
                 {% endfor %}
             </tbody>
         </table>
