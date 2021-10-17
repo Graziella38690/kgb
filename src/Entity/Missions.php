@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\MissionsRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\MissionsRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use App\Validator\Collections;
+use phpDocumentor\Reflection\Types\Boolean;
 
 /**
  * @ORM\Entity(repositoryClass=MissionsRepository::class)
@@ -45,42 +49,42 @@ class Missions
     private $datedefin;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Agents::class, inversedBy="missions")
+     * @ORM\ManyToMany(targetEntity=Agents::class, inversedBy="Missions")
      */
     private $Agents;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Contacts::class, inversedBy="missions")
+     * @ORM\ManyToMany(targetEntity=Contacts::class, inversedBy="Missions")
      */
     private $Contacts;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Cibles::class, inversedBy="missions")
+     * @ORM\ManyToMany(targetEntity=Cibles::class, inversedBy="Missions")
      */
     private $Cibles;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Typemission::class, inversedBy="missions")
+     * @ORM\ManyToOne(targetEntity=Typemission::class, inversedBy="Missions")
      */
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Statumission::class, inversedBy="missions")
+     * @ORM\ManyToOne(targetEntity=Statumission::class, inversedBy="Missions")
      */
     private $statut;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Planques::class, inversedBy="missions")
+     * @ORM\ManyToMany(targetEntity=Planques::class, inversedBy="Missions")
      */
     private $planque;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Specialite::class, inversedBy="missions")
+     * @ORM\ManyToOne(targetEntity=Specialite::class, inversedBy="Missions")
      */
     private $Specialite;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Pays::class, inversedBy="missions")
+     * @ORM\ManyToOne(targetEntity=Pays::class, inversedBy="Missions")
      */
     private $Pays;
 
@@ -297,6 +301,22 @@ class Missions
     public function setPays(?Pays $Pays): self
     {
         $this->Pays = $Pays;
+
+        return $this;
+    }
+
+    public function addAgent(Agents $agent): self
+    {
+        if (!$this->Agents->contains($agent)) {
+            $this->Agents[] = $agent;
+        }
+
+        return $this;
+    }
+
+    public function removeAgent(Agents $agent): self
+    {
+        $this->Agents->removeElement($agent);
 
         return $this;
     }

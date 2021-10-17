@@ -32,7 +32,7 @@ class Planques
     /**
      * @ORM\ManyToMany(targetEntity=Missions::class, mappedBy="planque")
      */
-    private $missions;
+    private $Missions;
 
     /**
      * @ORM\ManyToOne(targetEntity=Typeplanque::class, inversedBy="Planques")
@@ -47,7 +47,7 @@ class Planques
 
     public function __construct()
     {
-        $this->missions = new ArrayCollection();
+        $this->Missions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -84,13 +84,13 @@ class Planques
      */
     public function getMissions(): Collection
     {
-        return $this->missions;
+        return $this->Missions;
     }
 
     public function addMission(Missions $mission): self
     {
-        if (!$this->missions->contains($mission)) {
-            $this->missions[] = $mission;
+        if (!$this->Missions->contains($mission)) {
+            $this->Missions[] = $mission;
             $mission->addPlanque($this);
         }
 
@@ -99,7 +99,7 @@ class Planques
 
     public function removeMission(Missions $mission): self
     {
-        if ($this->missions->removeElement($mission)) {
+        if ($this->Missions->removeElement($mission)) {
             $mission->removePlanque($this);
         }
 

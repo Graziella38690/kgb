@@ -42,7 +42,7 @@ class Agents
     /**
      * @ORM\ManyToMany(targetEntity=Missions::class, mappedBy="Agents")
      */
-    private $missions;
+    private $Missions;
 
     /**
      * @ORM\ManyToOne(targetEntity=Nationalite::class, inversedBy="Agents")
@@ -56,7 +56,7 @@ class Agents
 
     public function __construct()
     {
-        $this->missions = new ArrayCollection();
+        $this->Missions = new ArrayCollection();
         $this->Specialite = new ArrayCollection();
     }
 
@@ -118,13 +118,13 @@ class Agents
      */
     public function getMissions(): Collection
     {
-        return $this->missions;
+        return $this->Missions;
     }
 
     public function addMission(Missions $mission): self
     {
-        if (!$this->missions->contains($mission)) {
-            $this->missions[] = $mission;
+        if (!$this->Missions->contains($mission)) {
+            $this->Missions[] = $mission;
             $mission->addAgents($this);
         }
 
@@ -133,7 +133,7 @@ class Agents
 
     public function removeMission(Missions $mission): self
     {
-        if ($this->missions->removeElement($mission)) {
+        if ($this->Missions->removeElement($mission)) {
             $mission->removeAgents($this);
         }
 

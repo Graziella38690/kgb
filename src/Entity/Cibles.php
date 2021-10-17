@@ -42,7 +42,7 @@ class Cibles
     /**
      * @ORM\ManyToMany(targetEntity=Missions::class, mappedBy="Cibles")
      */
-    private $missions;
+    private $Missions;
 
     /**
      * @ORM\ManyToOne(targetEntity=Nationalite::class, inversedBy="Cibles")
@@ -51,7 +51,7 @@ class Cibles
 
     public function __construct()
     {
-        $this->missions = new ArrayCollection();
+        $this->Missions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -112,13 +112,13 @@ class Cibles
      */
     public function getMissions(): Collection
     {
-        return $this->missions;
+        return $this->Missions;
     }
 
     public function addMission(Missions $mission): self
     {
-        if (!$this->missions->contains($mission)) {
-            $this->missions[] = $mission;
+        if (!$this->Missions->contains($mission)) {
+            $this->Missions[] = $mission;
             $mission->addCible($this);
         }
 
@@ -127,7 +127,7 @@ class Cibles
 
     public function removeMission(Missions $mission): self
     {
-        if ($this->missions->removeElement($mission)) {
+        if ($this->Missions->removeElement($mission)) {
             $mission->removeCible($this);
         }
 

@@ -27,7 +27,7 @@ class Specialite
     /**
      * @ORM\OneToMany(targetEntity=Missions::class, mappedBy="Specialite")
      */
-    private $missions;
+    private $Missions;
 
     /**
      * @ORM\ManyToMany(targetEntity=Agents::class, mappedBy="Specialite")
@@ -36,7 +36,7 @@ class Specialite
 
     public function __construct()
     {
-        $this->missions = new ArrayCollection();
+        $this->Missions = new ArrayCollection();
         $this->Agents = new ArrayCollection();
     }
 
@@ -62,13 +62,13 @@ class Specialite
      */
     public function getMissions(): Collection
     {
-        return $this->missions;
+        return $this->Missions;
     }
 
     public function addMission(Missions $mission): self
     {
-        if (!$this->missions->contains($mission)) {
-            $this->missions[] = $mission;
+        if (!$this->Missions->contains($mission)) {
+            $this->Missions[] = $mission;
             $mission->setSpecialite($this);
         }
 
@@ -77,7 +77,7 @@ class Specialite
 
     public function removeMission(Missions $mission): self
     {
-        if ($this->missions->removeElement($mission)) {
+        if ($this->Missions->removeElement($mission)) {
             // set the owning side to null (unless already changed)
             if ($mission->getSpecialite() === $this) {
                 $mission->setSpecialite(null);
@@ -109,6 +109,25 @@ class Specialite
     {
         if ($this->Agents->removeElement($Agents)) {
             $Agents->removeSpecialite($this);
+        }
+
+        return $this;
+    }
+
+    public function addAgent(Agents $agent): self
+    {
+        if (!$this->Agents->contains($agent)) {
+            $this->Agents[] = $agent;
+            $agent->addSpecialite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAgent(Agents $agent): self
+    {
+        if ($this->Agents->removeElement($agent)) {
+            $agent->removeSpecialite($this);
         }
 
         return $this;

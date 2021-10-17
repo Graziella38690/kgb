@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
-{% block title %}Liste de missions{% endblock %}
+{% block title %}Liste de Missions{% endblock %}
 
 {% block body %}
-
- 
 
         <table class="table">
         <thead>
@@ -23,10 +21,15 @@
                     <td>{{ Missions.titre }}</td>
                     <td>{{ Missions.description }}</td>
                         <td>
-						<a href="{{ path('app_details', {'id': Missions.id}) }}">show</a>
+                        
+						
 						<a href="{{ path('app_remove', {'id': Missions.id}) }}">Delete</a>
-					</td>
+                        <a href="{{ path('app_details', {'id': Missions.id}) }}">show</a>
+                        
+</td>
+
 			    </tr>
+                
                 {% endfor %}
             </tbody>
         </table>

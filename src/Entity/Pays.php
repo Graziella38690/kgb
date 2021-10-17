@@ -27,7 +27,7 @@ class Pays
     /**
      * @ORM\OneToMany(targetEntity=Missions::class, mappedBy="Pays")
      */
-    private $missions;
+    private $Missions;
 
     /**
      * @ORM\OneToOne(targetEntity=Nationalite::class, cascade={"persist", "remove"})
@@ -37,7 +37,7 @@ class Pays
 
     public function __construct()
     {
-        $this->missions = new ArrayCollection();
+        $this->Missions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -62,13 +62,13 @@ class Pays
      */
     public function getMissions(): Collection
     {
-        return $this->missions;
+        return $this->Missions;
     }
 
     public function addMission(Missions $mission): self
     {
-        if (!$this->missions->contains($mission)) {
-            $this->missions[] = $mission;
+        if (!$this->Missions->contains($mission)) {
+            $this->Missions[] = $mission;
             $mission->setPays($this);
         }
 
@@ -77,7 +77,7 @@ class Pays
 
     public function removeMission(Missions $mission): self
     {
-        if ($this->missions->removeElement($mission)) {
+        if ($this->Missions->removeElement($mission)) {
             // set the owning side to null (unless already changed)
             if ($mission->getPays() === $this) {
                 $mission->setPays(null);

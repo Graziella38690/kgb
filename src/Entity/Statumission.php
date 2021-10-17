@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\StatumissionRepository;
+use App\Repository\StatutmissionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
- * @ORM\Entity(repositoryClass=StatumissionRepository::class)
+ * @ORM\Entity(repositoryClass=StatutmissionRepository::class)
  */
 class Statumission
 {
@@ -27,11 +28,11 @@ class Statumission
     /**
      * @ORM\OneToMany(targetEntity=Missions::class, mappedBy="statut")
      */
-    private $missions;
+    private $Missions;
 
     public function __construct()
     {
-        $this->missions = new ArrayCollection();
+        $this->Missions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -56,13 +57,13 @@ class Statumission
      */
     public function getMissions(): Collection
     {
-        return $this->missions;
+        return $this->Missions;
     }
 
     public function addMission(Missions $mission): self
     {
-        if (!$this->missions->contains($mission)) {
-            $this->missions[] = $mission;
+        if (!$this->Missions->contains($mission)) {
+            $this->Missions[] = $mission;
             $mission->setStatut($this);
         }
 
@@ -71,7 +72,7 @@ class Statumission
 
     public function removeMission(Missions $mission): self
     {
-        if ($this->missions->removeElement($mission)) {
+        if ($this->Missions->removeElement($mission)) {
             // set the owning side to null (unless already changed)
             if ($mission->getStatut() === $this) {
                 $mission->setStatut(null);

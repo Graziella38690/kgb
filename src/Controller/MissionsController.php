@@ -1,21 +1,29 @@
 <?php
 namespace App\Controller;
 
+
 use App\Entity\Missions;
-use App\Entity\statutmissions;
-use App\Entity\Specialites;
-use App\Entity\Agents;
+use App\Form\MissionsType;
 use App\Repository\MissionsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bridge\Doctrine\RegistryInterface;
+
+
+
+
+
+
+
 
 
 class MissionsController extends AbstractController
 {
     /**
      * Liste mission
-     * @Route("/missionsliste", name="app_liste", methods={"GET"})
+     * @Route("/missions/liste", name="app_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -27,32 +35,42 @@ class MissionsController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $Missions = $em->getRepository(Missions::class)->findAll();
         
-        return $this->render('missions/liste.html.twig', [
+        return $this->render('Missions/liste.html.twig', [
             'Missions' => $Missions,
         ]);   
     }     
 
         /**
          * Détails d'une mission
-         * @Route("/missionsdetails/{id}", name="app_details", methods={"GET"})
+         * @Route("/missions/details/{id}", name="app_details", methods={"GET"})
          * 
          
          * @return Response
         
          */
-        public function details(int $id): Response
+    public function details(int $id): Response
         {
             // Entity Manager de Symfony
             $em = $this->getDoctrine()->getManager();
             $Missions = $em->getRepository(Missions::class)->findBy(['id' => $id]);
             
-            return $this->render('missions/details.html.twig', [
+            return $this->render('Missions/details.html.twig', [
                 'Missions' => $Missions,
             ]);   
         }     
-        /**
+
+
+
+
+
+
+
+
+
+       
+     /**
          * supprimer une mission
-         * @Route("/missionsremove/{id}", name="app_remove", methods={"GET"})
+         * @Route("/missions/remove/{id}", name="app_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -60,27 +78,90 @@ class MissionsController extends AbstractController
          */
         public function remove(int $id): Response
        
-            {
-       
-                /// Entity Manager de Symfony
-        
-                $em = $this->getDoctrine()->getManager();
-        
-                // On récupère la mission qui correspond à l'id passé dans l'URL
-       
-                $Missions = $em->getRepository(Missions::class)->findBy(['id' => $id])[0];
-       
-        
-                // L'article est supprimé
-        
-                $em->remove($Missions);
-        
-                $em->flush();
-        
-        
-                return $this->redirectToRoute('app_liste');
-        
-            }
+        {
+        /// Entity Manager de Symfony
+    
+        $em = $this->getDoctrine()->getManager();
+    
+        // On récupère la mission qui correspond à l'id passé dans l'URL
+   
+        $Missions = $em->getRepository(Missions::class)->findBy(['id' => $id])[0];
+   
+    
+        // L'article est supprimé
+    
+        $em->remove($Missions);
+    
+        $em->flush();
+    
+    
+        return $this->redirectToRoute('app_liste');
+    
+        }
+
+/**
+ * @Route("/missions/new")
+ */
+public function new(Request $request)
+{
+    $Missions = new Missions();
+    $form = $this->createForm(MissionsType::class, $Missions);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        if (!$Missions->missionIsValid()) {
+            $this->addFlash('error', 'Your mission does not contain valids items. Please check the following: Agent(s) skill(s) / Nationality of agents or contacts / Hideaway country');
+            return $this->redirectToRoute('app_liste');;
+        };
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($Missions);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_liste');
+    }
 
 
-} 
+    return $this->render('missions/newmissions.html.twig', [
+        
+        'Missions' => $Missions,
+        'form' => $form->createView(),
+        ] );
+}
+  
+
+/**
+* @Route("/missions/edit/{id}", name="app_missions_edit", methods={"GET","POST"}) 
+*/
+    public function edit(Request $request, Missions $Missions): Response
+    {
+        $form = $this->createForm(MissionsType::class, $Missions);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$Missions->missionIsValid()) {
+                $this->addFlash('error', 'Your mission does not contain valids items. Please check the following: Agent(s) skill(s) / Nationality of agents or contacts / Hideaway country');
+                return $this->redirectToRoute('app_liste');;
+            };
+
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('app_liste');
+        }
+
+        return $this->render('missions/editmission.html.twig', [
+            'missions' => $Missions,
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+
+}
+
+
+
+
+
+
+
+

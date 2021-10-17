@@ -152,4 +152,26 @@ class Nationalite
 
         return $this;
     }
+
+    public function addAgent(Agents $agent): self
+    {
+        if (!$this->Agents->contains($agent)) {
+            $this->Agents[] = $agent;
+            $agent->setNationalite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAgent(Agents $agent): self
+    {
+        if ($this->Agents->removeElement($agent)) {
+            // set the owning side to null (unless already changed)
+            if ($agent->getNationalite() === $this) {
+                $agent->setNationalite(null);
+            }
+        }
+
+        return $this;
+    }
 }
