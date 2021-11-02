@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BasicController!{% endblock %}
+
+{% block body %}
+<style>
+    .table-bordered  { margin: auto auto; 
+    max-width: 500px; 
+    width: 100%; 
+    font: 18px/1.5 comic;
+    border-color:transparent;
+
+}
+    
+</style>
+ 
+<table class="table">
+        <thead>
+        <tr>
+        <th>Code</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Date de naissance</th>
+        <th>Nationalite</th>
+        <th>Specialite</th>
+        </tr>
+
+            <tbody>
+                {% for Agents in Agents %}
+
+                <tr>
+                    <th scope="row">
+                   {{ Agents.codeidentification }}
+                    </th>
+                    <td>{{ Agents.nom }}</td>
+                    <td>{{ Agents.prenom }}</td>
+                    <td>{{Agents.datedenaissance|date('d/m/Y')}}</td>
+                    <td>{{Agents.nationalite.nom}}</td>
+ <td>
+					{% for Specialite in Agents.specialite %}
+						<li>{{Specialite.nom}}</li>
+					{% endfor %}
+				    </td>
+
+
+                        <td>
+                        
+			
+						
+                        
+                    </td>
+
+			     </tr>
+                
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    <p> <a href="{{ path('app_agents_new') }}">New</a></p>
+
+{% endblock %}
+ 
+
+
+
+
+
+
+
+
+

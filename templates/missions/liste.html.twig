@@ -22,18 +22,19 @@
                     <td>{{ Missions.description }}</td>
                         <td>
                         
-						
+			
 						<a href="{{ path('app_remove', {'id': Missions.id}) }}">Delete</a>
                         <a href="{{ path('app_details', {'id': Missions.id}) }}">show</a>
+                        <a href="{{ path('app_missions_edit', {'id': Missions.id}) }}">Modifier</a>
                         
-</td>
+                    </td>
 
-			    </tr>
+			     </tr>
                 
                 {% endfor %}
+                
             </tbody>
         </table>
-    
-
+    <p> <a href="{{ path('app_missions_new') }}">New</a></p>
 
 {% endblock %}

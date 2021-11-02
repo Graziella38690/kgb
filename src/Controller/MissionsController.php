@@ -58,16 +58,6 @@ class MissionsController extends AbstractController
                 'Missions' => $Missions,
             ]);   
         }     
-
-
-
-
-
-
-
-
-
-       
      /**
          * supprimer une mission
          * @Route("/missions/remove/{id}", name="app_remove", methods={"GET"})
@@ -100,7 +90,7 @@ class MissionsController extends AbstractController
         }
 
 /**
- * @Route("/missions/new")
+  * @Route("/missions/new", name="app_missions_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -109,25 +99,19 @@ public function new(Request $request)
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
-        if (!$Missions->missionIsValid()) {
-            $this->addFlash('error', 'Your mission does not contain valids items. Please check the following: Agent(s) skill(s) / Nationality of agents or contacts / Hideaway country');
-            return $this->redirectToRoute('app_liste');;
-        };
+        
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($Missions);
         $entityManager->flush();
 
         return $this->redirectToRoute('app_liste');
     }
-
-
     return $this->render('missions/newmissions.html.twig', [
         
         'Missions' => $Missions,
         'form' => $form->createView(),
         ] );
 }
-  
 
 /**
 * @Route("/missions/edit/{id}", name="app_missions_edit", methods={"GET","POST"}) 
@@ -138,11 +122,6 @@ public function new(Request $request)
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if (!$Missions->missionIsValid()) {
-                $this->addFlash('error', 'Your mission does not contain valids items. Please check the following: Agent(s) skill(s) / Nationality of agents or contacts / Hideaway country');
-                return $this->redirectToRoute('app_liste');;
-            };
-
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('app_liste');
