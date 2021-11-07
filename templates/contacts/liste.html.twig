@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des contacts{% endblock %}
+
+{% block body %}
+<style>
+
+    
+</style>
+ 
+ <table class="table">
+        <thead>
+        <tr>
+        <th>Code</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Date de naissance</th>
+        <th>Nationalite</th>
+        <th>Actions</th>
+
+        </tr>
+            <tbody>
+                {% for Contacts in Contacts %}
+
+                <tr>
+                    <th scope="row">
+                   {{ Contacts.nomdecode }}
+                    </th>
+                    <td>{{ Contacts.nom }}</td>
+                    <td>{{ Contacts.prenom }}</td>
+                    <td>{{Contacts.datedenaissance|date('d/m/Y')}}</td>
+                    <td>{{Contacts.nationalite.nom}}</td>
+
+                    <td>
+                    <a href="{{ path('app_contact_remove', {'id': Contacts.id}) }}">Delete</a>
+					<a href="{{ path('app_contact_edit', {'id': Contacts.id}) }}">Modifier</a>
+                    </td>
+			     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <p> <a href="{{ path('app_contact_new') }}">New</a></p>
+
+{% endblock %}
+ 

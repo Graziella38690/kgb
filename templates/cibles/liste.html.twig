@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des contacts{% endblock %}
+
+{% block body %}
+<style>
+
+    
+</style>
+ 
+ <table class="table">
+        <thead>
+        <tr>
+        <th>Code</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Date de naissance</th>
+        <th>Nationalite</th>
+        <th>Actions</th>
+
+        </tr>
+            <tbody>
+                {% for Cibles in Cibles %}
+
+                <tr>
+                    <th scope="row">
+                   {{ Cibles.nomdecode }}
+                    </th>
+                    <td>{{ Cibles.nom }}</td>
+                    <td>{{ Cibles.prenom }}</td>
+                    <td>{{Cibles.datedenaissance|date('d/m/Y')}}</td>
+                    <td>{{Cibles.nationalite.nom}}</td>
+
+                    <td>
+                    <a href="{{ path('app_cible_remove', {'id': Cibles.id}) }}">Delete</a>
+					<a href="{{ path('app_cible_edit', {'id': Cibles.id}) }}">Modifier</a>
+                    </td>
+			     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <p> <a href="{{ path('app_cible_new') }}">New</a></p>
+
+{% endblock %}
+ 
+
+

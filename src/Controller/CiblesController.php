@@ -2,20 +2,20 @@
 namespace App\Controller;
 
 
-use App\Entity\Agents;
-use App\Form\AgentsType;
-use App\Repository\AgentsRepository;
+use App\Entity\Cibles;
+use App\Form\CiblesType;
+use App\Repository\CiblesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
-class AgentsController extends AbstractController
+class CiblesController extends AbstractController
 {
     /**
-     * Liste agent
-     * @Route("/agent/liste", name="app_agent_liste", methods={"GET"})
+     * Liste cibles
+     * @Route("/cibles/liste", name="app_cible_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -25,42 +25,42 @@ class AgentsController extends AbstractController
     {
         // Entity Manager de Symfony
         $em = $this->getDoctrine()->getManager();
-        $Agents = $em->getRepository(Agents::class)->findAll();
+        $Cibles = $em->getRepository(Cibles::class)->findAll();
         
-        return $this->render('Agents/liste.html.twig', [
-            'Agents' => $Agents,
+        return $this->render('Cibles/liste.html.twig', [
+            'Cibles' => $Cibles,
         ]);   
     }     
 
        
 /**
-  * @Route("/agents/new", name="app_agents_new", methods={"GET","POST"})
+  * @Route("/cibles/new", name="app_cible_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
-    $Agents = new Agents();
-    $form = $this->createForm(AgentsType::class, $Agents);
+    $Cibles = new Cibles();
+    $form = $this->createForm(CiblesType::class, $Cibles);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
         
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($Agents);
+        $entityManager->persist($Cibles);
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_agent_liste');
+        return $this->redirectToRoute('app_cible_liste');
     }
-    return $this->render('agents/newagents.html.twig', [
+    return $this->render('cibles/newcibles.html.twig', [
         
-        'Agents' => $Agents,
+        'cibles' => $Cibles,
         'form' => $form->createView(),
         ] );
 }
 
 
  /**
-         * supprimer une mission
-         * @Route("/agent/remove/{id}", name="app_agent_remove", methods={"GET"})
+         * supprimer une cible
+         * @Route("/cible/remove/{id}", name="app_cible_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -75,36 +75,36 @@ public function new(Request $request)
     
         // On récupère la mission qui correspond à l'id passé dans l'URL
    
-        $Agents = $em->getRepository(Agents::class)->findBy(['id' => $id])[0];
+        $Agents = $em->getRepository(Cibles::class)->findBy(['id' => $id])[0];
    
     
         // L'article est supprimé
     
-        $em->remove($Agents);
+        $em->remove($Cibles);
     
         $em->flush();
     
     
-        return $this->redirectToRoute('app_agent_liste');
+        return $this->redirectToRoute('app_cible_liste');
     
         }
 
 /**
-* @Route("/agents/edit/{id}", name="app_agent_edit", methods={"GET","POST"}) 
+* @Route("/cibles/edit/{id}", name="app_cible_edit", methods={"GET","POST"}) 
 */
-public function edit(Request $request, Agents $Agents): Response
+public function edit(Request $request, Cibles $Cibles): Response
 {
-    $form = $this->createForm(AgentsType::class, $Agents);
+    $form = $this->createForm(CiblesType::class, $Cibles);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
         $this->getDoctrine()->getManager()->flush();
 
-        return $this->redirectToRoute('app_agent_liste');
+        return $this->redirectToRoute('app_cible_liste');
     }
 
-    return $this->render('agents/editagents.html.twig', [
-        'agents' => $Agents,
+    return $this->render('cibles/editcible.html.twig', [
+        'cibles' => $Cibles,
         'form' => $form->createView(),
     ]);
 }

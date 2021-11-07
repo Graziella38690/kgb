@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des pays{% endblock %}
+
+{% block body %}
+<style>
+
+    
+</style>
+ 
+ <table class="table">
+        <thead>
+        <tr>
+       
+        <th>Nom</th>
+        
+
+        </tr>
+            <tbody>
+                {% for Pays in Pays %}
+
+                <tr>
+                    <th scope="row">
+                   {{ Pays.nom }}
+                    </th>
+                 <td>
+                    {{ Pays.nationalite.nom }}
+					
+                    </td>
+                   <td>
+                    <a href="{{ path('app_pays_remove', {'id': Pays.id}) }}">Delete</a>
+					<a href="{{ path('app_pays_edit', {'id': Pays.id}) }}">Modifier</a>
+                    </td>
+			     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <p> <a href="{{ path('app_pays_new') }}">New</a></p>
+
+{% endblock %}
+ 

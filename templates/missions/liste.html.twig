@@ -3,6 +3,12 @@
 
 {% block body %}
 
+<style>
+
+    
+</style>
+
+
         <table class="table">
         <thead>
         <tr>
@@ -21,12 +27,14 @@
                     <td>{{ Missions.titre }}</td>
                     <td>{{ Missions.description }}</td>
                         <td>
-                        
-			
+                    
 						<a href="{{ path('app_remove', {'id': Missions.id}) }}">Delete</a>
-                        <a href="{{ path('app_details', {'id': Missions.id}) }}">show</a>
-                        <a href="{{ path('app_missions_edit', {'id': Missions.id}) }}">Modifier</a>
+                      <a href="{{ path('app_details', {'id': Missions.id}) }}">Voir</a>
+                       <a href="{{ path('app_missions_edit', {'id': Missions.id}) }}">Modifier</a>
                         
+
+
+
                     </td>
 
 			     </tr>

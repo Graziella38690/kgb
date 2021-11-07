@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des nationalite{% endblock %}
+
+{% block body %}
+<style>
+
+    
+</style>
+ 
+ <table class="table">
+        <thead>
+        <tr>
+       
+        <th>Nom</th>
+        
+
+        </tr>
+            <tbody>
+                {% for Nationalite in Nationalite %}
+
+                <tr>
+                    <th scope="row">
+                   {{ Nationalite.nom }}
+                    </th>
+                   <td>
+                    <a href="{{ path('app_nationalite_remove', {'id': Nationalite.id}) }}">Delete</a>
+					<a href="{{ path('app_nationalite_edit', {'id': Nationalite.id}) }}">Modifier</a>
+                    </td>
+			     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <p> <a href="{{ path('app_nationalite_new') }}">New</a></p>
+
+{% endblock %}
+ 
+
+

@@ -53,6 +53,7 @@ class MissionsType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
+            
             ->add('pays', EntityType::class, [
                 'choice_label' => 'nom', 
                 'class' => Pays::class,

@@ -1,20 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BasicController!{% endblock %}
+{% block title %}Liste des Agents{% endblock %}
 
 {% block body %}
 <style>
-    .table-bordered  { margin: auto auto; 
-    max-width: 500px; 
-    width: 100%; 
-    font: 18px/1.5 comic;
-    border-color:transparent;
 
-}
     
 </style>
- 
-<table class="table">
+ <h1>Liste des Agents</h1>
+ <table class="table">
         <thead>
         <tr>
         <th>Code</th>
@@ -23,6 +17,8 @@
         <th>Date de naissance</th>
         <th>Nationalite</th>
         <th>Specialite</th>
+        <th>Actions</th>
+        
         </tr>
 
             <tbody>
@@ -45,8 +41,12 @@
 
                         <td>
                         
-			
-						
+
+
+
+
+                        <a href="{{ path('app_agent_remove', {'id': Agents.id}) }}">Delete</a>
+						<a href="{{ path('app_agent_edit', {'id': Agents.id}) }}">Modifier</a>
                         
                     </td>
 
