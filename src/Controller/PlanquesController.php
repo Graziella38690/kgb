@@ -2,20 +2,20 @@
 namespace App\Controller;
 
 
-use App\Entity\Cibles;
-use App\Form\CiblesType;
-use App\Repository\CiblesRepository;
+use App\Entity\Planques;
+use App\Form\PlanquesType;
+use App\Repository\PlanquesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
-class CiblesController extends AbstractController
+class PlanquesController extends AbstractController
 {
     /**
-     * Liste cibles
-     * @Route("/cibles/liste", name="app_cible_liste", methods={"GET"})
+     * Liste des planques
+     * @Route("/planques/liste", name="app_planque_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -25,42 +25,42 @@ class CiblesController extends AbstractController
     {
         // Entity Manager de Symfony
         $em = $this->getDoctrine()->getManager();
-        $Cibles = $em->getRepository(Cibles::class)->findAll();
+        $Planques = $em->getRepository(Planques::class)->findAll();
         
-        return $this->render('Cibles/liste.html.twig', [
-            'Cibles' => $Cibles,
+        return $this->render('Planques/liste.html.twig', [
+            'Planques' => $Planques,
         ]);   
     }     
 
        
 /**
-  * @Route("/cibles/new", name="app_cible_new", methods={"GET","POST"})
+  * @Route("/planques/new", name="app_planque_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
-    $Cibles = new Cibles();
-    $form = $this->createForm(CiblesType::class, $Cibles);
+    $Planques = new Planques();
+    $form = $this->createForm(PlanquesType::class, $Planques);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
         
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($Cibles);
+        $entityManager->persist($Planques);
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_cible_liste');
+        return $this->redirectToRoute('app_planque_liste');
     }
-    return $this->render('cibles/newcibles.html.twig', [
+    return $this->render('Planques/newplanques.html.twig', [
         
-        'cibles' => $Cibles,
+        'planques' => $Planques,
         'form' => $form->createView(),
         ] );
 }
 
 
  /**
-         * supprimer une cible
-         * @Route("/cible/remove/{id}", name="app_cible_remove", methods={"GET"})
+         * supprimer un planque
+         * @Route("/planque/remove/{id}", name="app_planque_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -75,36 +75,36 @@ public function new(Request $request)
     
         // On récupère la mission qui correspond à l'id passé dans l'URL
    
-        $Cibles = $em->getRepository(Cibles::class)->findBy(['id' => $id])[0];
+        $Planques = $em->getRepository(Planques::class)->findBy(['id' => $id])[0];
    
     
         // L'article est supprimé
     
-        $em->remove($Cibles);
+        $em->remove($Planques);
     
         $em->flush();
     
     
-        return $this->redirectToRoute('app_cible_liste');
+        return $this->redirectToRoute('app_planque_liste');
     
         }
 
 /**
-* @Route("/cibles/edit/{id}", name="app_cible_edit", methods={"GET","POST"}) 
+* @Route("/planque/edit/{id}", name="app_planque_edit", methods={"GET","POST"}) 
 */
-public function edit(Request $request, Cibles $Cibles): Response
+public function edit(Request $request, Planques $Planques): Response
 {
-    $form = $this->createForm(CiblesType::class, $Cibles);
+    $form = $this->createForm(PlanquesType::class, $Planques);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
         $this->getDoctrine()->getManager()->flush();
 
-        return $this->redirectToRoute('app_cible_liste');
+        return $this->redirectToRoute('app_planque_liste');
     }
 
-    return $this->render('cibles/editcible.html.twig', [
-        'cibles' => $Cibles,
+    return $this->render('planques/editplanque.html.twig', [
+        'planques' => $Planques,
         'form' => $form->createView(),
     ]);
 }

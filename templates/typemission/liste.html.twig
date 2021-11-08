@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des type de planques{% endblock %}
+
+{% block body %}
+<style>
+
+    
+</style>
+ <h1>Liste des type de mission</h1>
+ <table class="table">
+        <thead>
+        <tr>
+        <th>nom</th>
+        <th>Actions</th>
+
+        </tr>
+            <tbody>
+                {% for Typemission in Typemission %}
+
+                <tr>
+                    <th scope="row">
+                   {{ Typemission.nom }}
+                    </th>
+                   
+                   
+                    
+
+                    <td>
+                    <a href="{{ path('app_typemission_remove', {'id': Typemission.id}) }}">Delete</a>
+					<a href="{{ path('app_typemission_edit', {'id': Typemission.id}) }}">Modifier</a>
+                    </td>
+			     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <p> <a href="{{ path('app_typemission_new') }}">New</a></p>
+
+{% endblock %}

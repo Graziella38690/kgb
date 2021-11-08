@@ -1,19 +1,67 @@
 <nav class="container navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-	<div>
-		<a class="navbar-brand" href="{{path('app_liste')}}">KGB MISSIONS</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-	</div>
+  <a class="navbar-brand" href="{{path('app_liste')}}">KGB</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+	 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Missions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{path('app_liste')}}">Liste</a>
+          <a class="dropdown-item" href="{{path('app_statumission_liste')}}">Statumission</a>
+          <a class="dropdown-item" href="{{path('app_typemission_liste')}}">Typemission</a>
+        </div>
+      </li>
 
-	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		<div class="navbar-nav">
-			<a class="nav-item nav-link" href="{{path('app_liste')}}">Missions</a>
-			<a class="nav-item nav-link" href="{{path('app_agent_liste')}}">Agents</a>
-            <a class="nav-item nav-link" href="{{path('app_cible_liste')}}">Cibles</a>
-			<a class="nav-item nav-link" href="{{path('app_contact_liste')}}">Contacts</a>
-			<a class="nav-item nav-link" href="{{path('app_nationalite_liste')}}">Nationalite</a>
-<a class="nav-item nav-link" href="{{path('app_pays_liste')}}">Pays</a>
-		</div>
-	</div>
-</nav
+	 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Nationalite/Pays
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{path('app_nationalite_liste')}}">Liste nationalitées</a>
+          <a class="dropdown-item" href="{{path('app_pays_liste')}}">Liste pays</a>
+  
+        </div>
+      </li>
+	 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Planques
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{path('app_planque_liste')}}">Liste des planques</a>
+          <a class="dropdown-item" href="{{path('app_typeplanque_liste')}}">Liste des types de planques</a>
+        </div>
+      </li>
+
+	<li class="nav-item">
+        <a class="nav-link" href="{{path('app_specialite_liste')}}">Specialitées</a>
+      </li>
+
+	 <li class="nav-item">
+        <a class="nav-link" href="{{path('app_agent_liste')}}">Agents</a>
+      </li>
+     
+     <li class="nav-item">
+        <a class="nav-link" href="{{path('app_contact_liste')}}">Contact</a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" href="{{path('app_cible_liste')}}">Cibles</a>
+      </li>
+     
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+

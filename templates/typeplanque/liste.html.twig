@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des type de planques{% endblock %}
+
+{% block body %}
+<style>
+
+    
+</style>
+ <h1>Liste des type de planques</h1>
+ <table class="table">
+        <thead>
+        <tr>
+        <th>nom</th>
+        <th>Actions</th>
+
+        </tr>
+            <tbody>
+                {% for Typeplanque in Typeplanque %}
+
+                <tr>
+                    <th scope="row">
+                   {{ Typeplanque.nom }}
+                    </th>
+                   
+                   
+                    
+
+                    <td>
+                    <a href="{{ path('app_typeplanque_remove', {'id': Typeplanque.id}) }}">Delete</a>
+					<a href="{{ path('app_typeplanque_edit', {'id': Typeplanque.id}) }}">Modifier</a>
+                    </td>
+			     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <p> <a href="{{ path('app_typeplanque_new') }}">New</a></p>
+
+{% endblock %}

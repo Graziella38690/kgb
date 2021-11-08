@@ -35,9 +35,25 @@ class Pays
      */
     private $Nationalite;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Planques::class, mappedBy="pays")
+     */
+    private $pays;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Planques::class, mappedBy="Pays")
+     */
+    private $planques;
+
+    
+   
+
     public function __construct()
     {
         $this->Missions = new ArrayCollection();
+       
+        $this->pays = new ArrayCollection();
+        $this->planques = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -98,4 +114,45 @@ class Pays
 
         return $this;
     }
+
+    /**
+     * @return Collection|Planques[]
+     */
+    public function getPlanques(): Collection
+    {
+        return $this->planques;
+    }
+
+    public function addPlanque(Planques $planque): self
+    {
+        if (!$this->planques->contains($planque)) {
+            $this->planques[] = $planque;
+            $planque->setPays($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlanque(Planques $planque): self
+    {
+        if ($this->planques->removeElement($planque)) {
+            // set the owning side to null (unless already changed)
+            if ($planque->getPays() === $this) {
+                $planque->setPays(null);
+            }
+        }
+
+        return $this;
+    }
+
+   
+
+ 
+
+
+    
+
+    
+
+   
 }

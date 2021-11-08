@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Typemission;
+use App\Entity\Typeplanque;
 use App\Entity\Statumission;
 use App\Entity\Missions;
 use App\Entity\Agents;
@@ -20,25 +21,21 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
-class PaysType extends AbstractType
+class StatumissionType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('nationalite', EntityType::class, [
-                'choice_label' => 'nom', 
-                'class' => Nationalite::class,
-                'multiple' => false,
-                'expanded' => false,
-            ]);
-            
+            ->add('nom', TextType::class);
+           
+           
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Pays::class,
+            'data_class' => Statumission::class,
         ]);
     }
 }
+

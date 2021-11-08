@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des planques{% endblock %}
+
+{% block body %}
+<style>
+
+    
+</style>
+ <h1>Liste des planques</h1>
+ <table class="table">
+        <thead>
+        <tr>
+        <th>Code</th>
+        <th>adresse</th>
+        <th>Pays</th>
+        <th>type</th>
+       
+        <th>Actions</th>
+
+        </tr>
+            <tbody>
+                {% for Planques in Planques %}
+
+                <tr>
+                    <th scope="row">
+                   {{ Planques.codeidentification }}
+                    </th>
+                    <td>{{ Planques.adresse }}</td>
+                    <td>{{ Planques.pays.nom }}</td>
+                    <td>{{ Planques.type.nom }}</td>
+                   
+                    
+
+                    <td>
+                    <a href="{{ path('app_planque_remove', {'id': Planques.id}) }}">Delete</a>
+					<a href="{{ path('app_planque_edit', {'id': Planques.id}) }}">Modifier</a>
+                    </td>
+			     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <p> <a href="{{ path('app_planque_new') }}">New</a></p>
+
+{% endblock %}
+ 

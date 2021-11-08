@@ -1,0 +1,112 @@
+<?php
+namespace App\Controller;
+
+
+use App\Entity\Typeplanque;
+use App\Form\TypeplanqueType;
+use App\Repository\TypeplanqueRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bridge\Doctrine\RegistryInterface;
+
+class TypeplanqueController extends AbstractController
+{
+    /**
+     * Liste des type de planques
+     * @Route("/typeplanque/liste", name="app_typeplanque_liste", methods={"GET"})
+     * 
+     
+     * @return Response
+    
+     */
+    public function liste(): Response
+    {
+        // Entity Manager de Symfony
+        $em = $this->getDoctrine()->getManager();
+        $Typeplanque = $em->getRepository(Typeplanque::class)->findAll();
+        
+        return $this->render('typeplanque/liste.html.twig', [
+            'Typeplanque' => $Typeplanque,
+        ]);   
+    }     
+
+       
+/**
+  * @Route("/typeplanque/new", name="app_typeplanque_new", methods={"GET","POST"})
+ */
+public function new(Request $request)
+{
+    $Typeplanque = new Typeplanque();
+    $form = $this->createForm(TypeplanqueType::class, $Typeplanque);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($Typeplanque);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_typeplanque_liste');
+    }
+    return $this->render('Typeplanque/newtypeplanque.html.twig', [
+        
+        'typeplanque' => $Typeplanque,
+        'form' => $form->createView(),
+        ] );
+}
+
+
+ /**
+         * supprimer un typeplanque
+         * @Route("/typeplanque/remove/{id}", name="app_typeplanque_remove", methods={"GET"})
+         * 
+         
+         * @return Response
+        
+         */
+        public function remove(int $id): Response
+       
+        {
+        /// Entity Manager de Symfony
+    
+        $em = $this->getDoctrine()->getManager();
+    
+        // On récupère la mission qui correspond à l'id passé dans l'URL
+   
+        $Typeplanque = $em->getRepository(Typeplanque::class)->findBy(['id' => $id])[0];
+   
+    
+        // L'article est supprimé
+    
+        $em->remove($Typeplanque);
+    
+        $em->flush();
+    
+    
+        return $this->redirectToRoute('app_typeplanque_liste');
+    
+        }
+
+/**
+* @Route("/typeplanque/edit/{id}", name="app_typeplanque_edit", methods={"GET","POST"}) 
+*/
+public function edit(Request $request, Typeplanque $Typeplanque): Response
+{
+    $form = $this->createForm(TypeplanqueType::class, $Typeplanque);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('app_typeplanque_liste');
+    }
+
+    return $this->render('typeplanque/edittypeplanque.html.twig', [
+        'typeplanque' => $Typeplanque,
+        'form' => $form->createView(),
+    ]);
+}
+
+}

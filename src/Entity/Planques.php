@@ -41,6 +41,14 @@ class Planques
     private $type;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Pays::class, inversedBy="planques")
+     */
+    private $Pays;
+
+
+
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     
@@ -106,17 +114,7 @@ class Planques
         return $this;
     }
 
-    public function getPays(): ?string
-    {
-        return $this->Pays;
-    }
 
-    public function setPays(string $Pays): self
-    {
-        $this->Pays = $Pays;
-
-        return $this;
-    }
 
     public function getType(): ?Typeplanque
     {
@@ -129,4 +127,18 @@ class Planques
 
         return $this;
     }
+
+    public function getPays(): ?Pays
+    {
+        return $this->Pays;
+    }
+
+    public function setPays(?Pays $Pays): self
+    {
+        $this->Pays = $Pays;
+
+        return $this;
+    }
+
+    
 }

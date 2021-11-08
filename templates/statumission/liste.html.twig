@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des statutmission{% endblock %}
+
+{% block body %}
+<style>
+
+    
+</style>
+ <h1>Liste des statumission</h1>
+ <table class="table">
+        <thead>
+        <tr>
+        <th>Nom</th>
+        <th>Actions</th>
+
+        </tr>
+            <tbody>
+                {% for Statumission in Statumission %}
+
+                <tr>
+                    <th scope="row">
+                   {{ Statumission.nom}}
+                    </th>
+                    
+                    <td>
+                    <a href="{{ path('app_statumission_remove', {'id': Statumission.id}) }}">Delete</a>
+					<a href="{{ path('app_statumission_edit', {'id': Statumission.id}) }}">Modifier</a>
+                    </td>
+			     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <p> <a href="{{ path('app_statumission_new') }}">New</a></p>
+
+{% endblock %}
+ 
