@@ -15,7 +15,7 @@ class ContactsController extends AbstractController
 {
     /**
      * Liste contact
-     * @Route("/contacts/liste", name="app_contact_liste", methods={"GET"})
+     * @Route("admin/contacts/liste", name="app_contact_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -34,7 +34,7 @@ class ContactsController extends AbstractController
 
        
 /**
-  * @Route("/contacts/new", name="app_contact_new", methods={"GET","POST"})
+  * @Route("admin/contacts/new", name="app_contact_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -60,7 +60,7 @@ public function new(Request $request)
 
  /**
          * supprimer un contact
-         * @Route("/contact/remove/{id}", name="app_contact_remove", methods={"GET"})
+         * @Route("admin/contact/remove/{id}", name="app_contact_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -90,7 +90,7 @@ public function new(Request $request)
         }
 
 /**
-* @Route("/contact/edit/{id}", name="app_contact_edit", methods={"GET","POST"}) 
+* @Route("admin/contact/edit/{id}", name="app_contact_edit", methods={"GET","POST"}) 
 */
 public function edit(Request $request, Contacts $Contacts): Response
 {

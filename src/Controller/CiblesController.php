@@ -15,7 +15,7 @@ class CiblesController extends AbstractController
 {
     /**
      * Liste cibles
-     * @Route("/cibles/liste", name="app_cible_liste", methods={"GET"})
+     * @Route("admin/cibles/liste", name="app_cible_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -34,7 +34,7 @@ class CiblesController extends AbstractController
 
        
 /**
-  * @Route("/cibles/new", name="app_cible_new", methods={"GET","POST"})
+  * @Route("admin/cibles/new", name="app_cible_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -60,7 +60,7 @@ public function new(Request $request)
 
  /**
          * supprimer une cible
-         * @Route("/cible/remove/{id}", name="app_cible_remove", methods={"GET"})
+         * @Route("admin/cible/remove/{id}", name="app_cible_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -90,7 +90,7 @@ public function new(Request $request)
         }
 
 /**
-* @Route("/cibles/edit/{id}", name="app_cible_edit", methods={"GET","POST"}) 
+* @Route("admin/cibles/edit/{id}", name="app_cible_edit", methods={"GET","POST"}) 
 */
 public function edit(Request $request, Cibles $Cibles): Response
 {

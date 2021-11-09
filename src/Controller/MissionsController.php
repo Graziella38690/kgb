@@ -60,8 +60,8 @@ class MissionsController extends AbstractController
         }     
      /**
          * supprimer une mission
-         * @Route("/missions/remove/{id}", name="app_remove", methods={"GET"})
-         * 
+         * @Route("admin/missions/remove/{id}", name="app_remove", methods={"GET"})
+         
          
          * @return Response
         
@@ -90,7 +90,8 @@ class MissionsController extends AbstractController
         }
 
 /**
-  * @Route("/missions/new", name="app_missions_new", methods={"GET","POST"})
+  * @Route("admin/missions/new", name="app_missions_new", methods={"GET","POST"})
+  * 
  */
 public function new(Request $request)
 {
@@ -115,6 +116,7 @@ public function new(Request $request)
 
 /**
 * @Route("/missions/edit/{id}", name="app_missions_edit", methods={"GET","POST"}) 
+* 
 */
     public function edit(Request $request, Missions $Missions): Response
     {

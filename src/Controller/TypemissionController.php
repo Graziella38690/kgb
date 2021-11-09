@@ -15,7 +15,7 @@ class TypemissionController extends AbstractController
 {
     /**
      * Liste des type de mission
-     * @Route("/typemission/liste", name="app_typemission_liste", methods={"GET"})
+     * @Route("admin/typemission/liste", name="app_typemission_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -34,7 +34,7 @@ class TypemissionController extends AbstractController
 
        
 /**
-  * @Route("/typemission/new", name="app_typemission_new", methods={"GET","POST"})
+  * @Route("admin/typemission/new", name="app_typemission_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -60,7 +60,7 @@ public function new(Request $request)
 
  /**
          * supprimer un typemission
-         * @Route("/typemission/remove/{id}", name="app_typemission_remove", methods={"GET"})
+         * @Route("admin/typemission/remove/{id}", name="app_typemission_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -90,7 +90,7 @@ public function new(Request $request)
         }
 
 /**
-* @Route("/typemission/edit/{id}", name="app_typemission_edit", methods={"GET","POST"}) 
+* @Route("admin/typemission/edit/{id}", name="app_typemission_edit", methods={"GET","POST"}) 
 */
 public function edit(Request $request, Typemission $Typemission): Response
 {

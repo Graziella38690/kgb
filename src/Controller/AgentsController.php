@@ -15,7 +15,7 @@ class AgentsController extends AbstractController
 {
     /**
      * Liste agent
-     * @Route("/agent/liste", name="app_agent_liste", methods={"GET"})
+     * @Route("admin/agent/liste", name="app_agent_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -34,7 +34,7 @@ class AgentsController extends AbstractController
 
        
 /**
-  * @Route("/agents/new", name="app_agents_new", methods={"GET","POST"})
+  * @Route("admin/agents/new", name="app_agents_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -60,7 +60,7 @@ public function new(Request $request)
 
  /**
          * supprimer une mission
-         * @Route("/agent/remove/{id}", name="app_agent_remove", methods={"GET"})
+         * @Route("admin/agent/remove/{id}", name="app_agent_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -90,7 +90,7 @@ public function new(Request $request)
         }
 
 /**
-* @Route("/agents/edit/{id}", name="app_agent_edit", methods={"GET","POST"}) 
+* @Route("admin/agents/edit/{id}", name="app_agent_edit", methods={"GET","POST"}) 
 */
 public function edit(Request $request, Agents $Agents): Response
 {

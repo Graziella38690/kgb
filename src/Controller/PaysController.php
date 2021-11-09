@@ -15,7 +15,7 @@ class PaysController extends AbstractController
 {
     /**
      * Liste des Pays
-     * @Route("/pays/liste", name="app_pays_liste", methods={"GET"})
+     * @Route("admin/pays/liste", name="app_pays_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -34,7 +34,7 @@ class PaysController extends AbstractController
 
        
 /**
-  * @Route("/pays/new", name="app_pays_new", methods={"GET","POST"})
+  * @Route("admin/pays/new", name="app_pays_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -48,7 +48,7 @@ public function new(Request $request)
         $entityManager->persist($Pays);
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_Pays_liste');
+        return $this->redirectToRoute('app_pays_liste');
     }
     return $this->render('pays/newpays.html.twig', [
         
@@ -60,7 +60,7 @@ public function new(Request $request)
 
  /**
          * supprimer une pays
-         * @Route("/pays/remove/{id}", name="app_pays_remove", methods={"GET"})
+         * @Route("admin/pays/remove/{id}", name="app_pays_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -90,7 +90,7 @@ public function new(Request $request)
         }
 
 /**
-* @Route("/pays/edit/{id}", name="app_pays_edit", methods={"GET","POST"}) 
+* @Route("admin/pays/edit/{id}", name="app_pays_edit", methods={"GET","POST"}) 
 */
 public function edit(Request $request, Pays $Pays): Response
 {

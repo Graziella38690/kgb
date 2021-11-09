@@ -15,7 +15,7 @@ class StatumissionController extends AbstractController
 {
     /**
      * Liste des type de planques
-     * @Route("/statumission/liste", name="app_statumission_liste", methods={"GET"})
+     * @Route("admin/statumission/liste", name="app_statumission_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -34,7 +34,7 @@ class StatumissionController extends AbstractController
 
        
 /**
-  * @Route("/statumission/new", name="app_statumission_new", methods={"GET","POST"})
+  * @Route("admin/statumission/new", name="app_statumission_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -60,7 +60,7 @@ public function new(Request $request)
 
  /**
          * supprimer un statumission
-         * @Route("/statumission/remove/{id}", name="app_statumission_remove", methods={"GET"})
+         * @Route("admin/statumission/remove/{id}", name="app_statumission_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -90,7 +90,7 @@ public function new(Request $request)
         }
 
 /**
-* @Route("/statumission/edit/{id}", name="app_statumission_edit", methods={"GET","POST"}) 
+* @Route("admin/statumission/edit/{id}", name="app_statumission_edit", methods={"GET","POST"}) 
 */
 public function edit(Request $request, Statumission $Statumission): Response
 {

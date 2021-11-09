@@ -15,7 +15,7 @@ class PlanquesController extends AbstractController
 {
     /**
      * Liste des planques
-     * @Route("/planques/liste", name="app_planque_liste", methods={"GET"})
+     * @Route("admin/planques/liste", name="app_planque_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -34,7 +34,7 @@ class PlanquesController extends AbstractController
 
        
 /**
-  * @Route("/planques/new", name="app_planque_new", methods={"GET","POST"})
+  * @Route("admin/planques/new", name="app_planque_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -60,7 +60,7 @@ public function new(Request $request)
 
  /**
          * supprimer un planque
-         * @Route("/planque/remove/{id}", name="app_planque_remove", methods={"GET"})
+         * @Route("admin/planque/remove/{id}", name="app_planque_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -90,7 +90,7 @@ public function new(Request $request)
         }
 
 /**
-* @Route("/planque/edit/{id}", name="app_planque_edit", methods={"GET","POST"}) 
+* @Route("admin/planque/edit/{id}", name="app_planque_edit", methods={"GET","POST"}) 
 */
 public function edit(Request $request, Planques $Planques): Response
 {

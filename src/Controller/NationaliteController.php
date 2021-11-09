@@ -15,7 +15,7 @@ class NationaliteController extends AbstractController
 {
     /**
      * Liste des Nationalité
-     * @Route("/nationalite/liste", name="app_nationalite_liste", methods={"GET"})
+     * @Route("admin/nationalite/liste", name="app_nationalite_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -34,7 +34,7 @@ class NationaliteController extends AbstractController
 
        
 /**
-  * @Route("/nationalite/new", name="app_nationalite_new", methods={"GET","POST"})
+  * @Route("admin/nationalite/new", name="app_nationalite_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -60,7 +60,7 @@ public function new(Request $request)
 
  /**
          * supprimer une nationalite
-         * @Route("/nationalite/remove/{id}", name="app_nationalite_remove", methods={"GET"})
+         * @Route("admin/nationalite/remove/{id}", name="app_nationalite_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -90,7 +90,7 @@ public function new(Request $request)
         }
 
 /**
-* @Route("/nationalite/edit/{id}", name="app_nationalite_edit", methods={"GET","POST"}) 
+* @Route("admin/nationalite/edit/{id}", name="app_nationalite_edit", methods={"GET","POST"}) 
 */
 public function edit(Request $request, Nationalite $Nationalite): Response
 {

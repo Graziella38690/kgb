@@ -29,10 +29,12 @@
                     <td>{{ Missions.description }}</td>
                         <td>
                     
-						<a href="{{ path('app_remove', {'id': Missions.id}) }}">Delete</a>
+						
                       <a href="{{ path('app_details', {'id': Missions.id}) }}">Voir</a>
+                      {% if is_granted('ROLE_ADMIN') %}
+                      <a href="{{ path('app_remove', {'id': Missions.id}) }}">Delete</a>
                        <a href="{{ path('app_missions_edit', {'id': Missions.id}) }}">Modifier</a>
-                        
+                        {% endif %}
 
 
 
@@ -44,6 +46,7 @@
                 
             </tbody>
         </table>
+         {% if is_granted('ROLE_ADMIN') %}
     <p> <a href="{{ path('app_missions_new') }}">New</a></p>
-
+ {% endif %}
 {% endblock %}

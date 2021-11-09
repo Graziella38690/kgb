@@ -15,7 +15,7 @@ class TypeplanqueController extends AbstractController
 {
     /**
      * Liste des type de planques
-     * @Route("/typeplanque/liste", name="app_typeplanque_liste", methods={"GET"})
+     * @Route("admin/typeplanque/liste", name="app_typeplanque_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -34,7 +34,7 @@ class TypeplanqueController extends AbstractController
 
        
 /**
-  * @Route("/typeplanque/new", name="app_typeplanque_new", methods={"GET","POST"})
+  * @Route("admin/typeplanque/new", name="app_typeplanque_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -60,7 +60,7 @@ public function new(Request $request)
 
  /**
          * supprimer un typeplanque
-         * @Route("/typeplanque/remove/{id}", name="app_typeplanque_remove", methods={"GET"})
+         * @Route("admin/typeplanque/remove/{id}", name="app_typeplanque_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -90,7 +90,7 @@ public function new(Request $request)
         }
 
 /**
-* @Route("/typeplanque/edit/{id}", name="app_typeplanque_edit", methods={"GET","POST"}) 
+* @Route("admin/typeplanque/edit/{id}", name="app_typeplanque_edit", methods={"GET","POST"}) 
 */
 public function edit(Request $request, Typeplanque $Typeplanque): Response
 {

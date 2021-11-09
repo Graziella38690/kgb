@@ -15,7 +15,7 @@ class SpecialiteController extends AbstractController
 {
     /**
      * Liste des Specialite
-     * @Route("/specialite/liste", name="app_specialite_liste", methods={"GET"})
+     * @Route("admin/specialite/liste", name="app_specialite_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -34,7 +34,7 @@ class SpecialiteController extends AbstractController
 
        
 /**
-  * @Route("/specialite/new", name="app_specialite_new", methods={"GET","POST"})
+  * @Route("admin/specialite/new", name="app_specialite_new", methods={"GET","POST"})
  */
 public function new(Request $request)
 {
@@ -60,7 +60,7 @@ public function new(Request $request)
 
  /**
          * supprimer une specialite
-         * @Route("/specialite/remove/{id}", name="app_specialite_remove", methods={"GET"})
+         * @Route("admin/specialite/remove/{id}", name="app_specialite_remove", methods={"GET"})
          * 
          
          * @return Response
@@ -90,7 +90,7 @@ public function new(Request $request)
         }
 
 /**
-* @Route("/specialite/edit/{id}", name="app_specialite_edit", methods={"GET","POST"}) 
+* @Route("admin/specialite/edit/{id}", name="app_specialite_edit", methods={"GET","POST"}) 
 */
 public function edit(Request $request, specialite $Specialite): Response
 {
