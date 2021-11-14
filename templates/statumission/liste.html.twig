@@ -1,14 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des statutmission{% endblock %}
+{% block title %}Liste des statuts de mission{% endblock %}
 
 {% block body %}
-<style>
 
-    
-</style>
- <h1>Liste des statumission</h1>
- <table class="table">
+ <div class="container">
+ <h1>Liste des statuts de mission</h1>
+ <table class="table table-bordered table-striped">
         <thead>
         <tr>
         <th>Nom</th>
@@ -19,7 +17,7 @@
                 {% for Statumission in Statumission %}
 
                 <tr>
-                    <th scope="row">
+                    <th scope="row justify-content-center">
                    {{ Statumission.nom}}
                     </th>
                     
@@ -31,6 +29,7 @@
                 {% endfor %}
             </tbody>
         </table>
+        </div>
     <p> <a href="{{ path('app_statumission_new') }}">New</a></p>
 
 {% endblock %}

@@ -3,12 +3,11 @@
 {% block title %}Liste des specialitées{% endblock %}
 
 {% block body %}
-<style>
 
-    
-</style>
- <h1>Liste des specialitées</h1>
- <table class="table">
+ 
+<div class="container">
+<h1>Liste des specialitées</h1>
+ <table class="table table-bordered table-striped">
         <thead>
         <tr>
         <th>Nom</th>
@@ -19,7 +18,7 @@
                 {% for Specialite in Specialite %}
 
                 <tr>
-                    <th scope="row">
+                    <th scope="row justify-content-center">
                    {{ Specialite.nom}}
                     </th>
                     
@@ -31,6 +30,7 @@
                 {% endfor %}
             </tbody>
         </table>
+         </div>
     <p> <a href="{{ path('app_specialite_new') }}">New</a></p>
 
 {% endblock %}

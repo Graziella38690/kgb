@@ -3,12 +3,11 @@
 {% block title %}Liste des nationalitées{% endblock %}
 
 {% block body %}
-<style>
 
-    
-</style>
+ 
+ <div class="container">
  <h1>Liste des nationalitées</h1>
- <table class="table">
+ <table class="table table-bordered table-striped">
         <thead>
         <tr>
        
@@ -20,7 +19,7 @@
                 {% for Nationalite in Nationalite %}
 
                 <tr>
-                    <th scope="row">
+                    <th scope="row justify-content-center">
                    {{ Nationalite.nom }}
                     </th>
                    <td>
@@ -31,6 +30,7 @@
                 {% endfor %}
             </tbody>
         </table>
+        </div>
     <p> <a href="{{ path('app_nationalite_new') }}">New</a></p>
 
 {% endblock %}

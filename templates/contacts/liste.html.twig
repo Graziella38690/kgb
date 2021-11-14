@@ -3,12 +3,11 @@
 {% block title %}Liste des contacts{% endblock %}
 
 {% block body %}
-<style>
 
-    
-</style>
- <h1>Liste des contacts</h1>
- <table class="table">
+
+ <div class="container">
+  <h1>Liste des contacts</h1>
+ <table class="table table-bordered table-striped">
         <thead>
         <tr>
         <th>Code</th>
@@ -23,7 +22,7 @@
                 {% for Contacts in Contacts %}
 
                 <tr>
-                    <th scope="row">
+                    <th scope="row justify-content-center">
                    {{ Contacts.nomdecode }}
                     </th>
                     <td>{{ Contacts.nom }}</td>
@@ -39,6 +38,7 @@
                 {% endfor %}
             </tbody>
         </table>
+         </div>
     <p> <a href="{{ path('app_contact_new') }}">New</a></p>
 
 {% endblock %}

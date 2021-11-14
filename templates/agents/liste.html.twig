@@ -3,12 +3,10 @@
 {% block title %}Liste des Agents{% endblock %}
 
 {% block body %}
-<style>
 
-    
-</style>
+<div class="container">
  <h1>Liste des Agents</h1>
- <table class="table">
+ <table class="table table-bordered table-striped">
         <thead>
         <tr>
         <th>Code</th>
@@ -25,7 +23,7 @@
                 {% for Agents in Agents %}
 
                 <tr>
-                    <th scope="row">
+                    <th scope="row justify-content-center">
                    {{ Agents.codeidentification }}
                     </th>
                     <td>{{ Agents.nom }}</td>
@@ -56,6 +54,7 @@
                 
             </tbody>
         </table>
+         </div>
     <p> <a href="{{ path('app_agents_new') }}">New</a></p>
 
 {% endblock %}
