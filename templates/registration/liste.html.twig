@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des admins{% endblock %}
+
+{% block body %}
+
+ 
+<div class="container">
+<h1>Liste des administrateurs</h1>
+ <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+        <th>Identifiant</th>
+        <th>Mots de passe</th>
+        <th>nom</th>
+        <th>prenom</th>
+        <th>Date de création</th>
+        <th>Action</th>
+        </tr>
+            <tbody>
+                {% for User in User %}
+
+                <tr>
+                    <th scope="row justify-content-center">
+                   {{ User.username}}
+                    </th>
+                     <th scope="row justify-content-center">
+                   {{ User.password}}
+                    </th>
+                    <th scope="row justify-content-center">
+                   {{ User.nom}}
+                    </th>
+                     <th scope="row justify-content-center">
+                   {{ User.prenom}}
+                    </th>
+                      <th scope="row justify-content-center">
+                   {{ User.datecreation|date('d/m/Y')}}
+                    </th>
+<td>
+                    <a href="{{ path('app_user_edit', {'id': User.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+					<a href="{{ path('app_user_remove', {'id': User.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
+                    </td>
+
+			     </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+  <div class="row justify-content-center">
+         <a href="{{ path('app_register') }}" class="btn btn-dark" role="button">Crer un administrateur</a>
+    </div>
+
+{% endblock %}
+ 

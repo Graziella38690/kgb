@@ -6,6 +6,7 @@
 
  <div class="container">
  <h1>Liste des types de mission</h1>
+ 
  <table class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -20,19 +21,20 @@
                     <th scope="row justify-content-center">
                    {{ Typemission.nom }}
                     </th>
-                   
-                   
-                    
-
                     <td>
-                    <a href="{{ path('app_typemission_remove', {'id': Typemission.id}) }}">Delete</a>
-					<a href="{{ path('app_typemission_edit', {'id': Typemission.id}) }}">Modifier</a>
+                     <a href="{{ path('app_typemission_edit', {'id': Typemission.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+                    <a href="{{ path('app_typemission_remove', {'id': Typemission.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
+                    
+					
                     </td>
 			     </tr>
                 {% endfor %}
             </tbody>
         </table>
-      
-    <p> <a href="{{ path('app_typemission_new') }}">New</a></p>
+      <div class="row justify-content-center">
+         
+         <a href="{{ path('app_typemission_new') }}" class="btn btn-dark" role="button">Crée un nouveau type de mission</a>
+    </div>
+ 
 
 {% endblock %}

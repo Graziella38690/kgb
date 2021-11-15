@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des Agents{% endblock %}
+{% block title %}Liste des agents{% endblock %}
 
 {% block body %}
 
 <div class="container">
- <h1>Liste des Agents</h1>
+ <h1>Liste des agents</h1>
  <table class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -42,10 +42,8 @@
 
 
 
-
-                        <a href="{{ path('app_agent_remove', {'id': Agents.id}) }}">Delete</a>
-						<a href="{{ path('app_agent_edit', {'id': Agents.id}) }}">Modifier</a>
-                        
+ <a href="{{ path('app_agent_edit', {'id': Agents.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+ <a href="{{ path('app_agent_remove', {'id': Agents.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
                     </td>
 
 			     </tr>
@@ -55,7 +53,11 @@
             </tbody>
         </table>
          </div>
-    <p> <a href="{{ path('app_agents_new') }}">New</a></p>
+          <div class="row justify-content-center">
+      
+         <a href="{{ path('app_agents_new') }}" class="btn btn-dark" role="button">Crer un agent</a>
+    </div>
+    
 
 {% endblock %}
  

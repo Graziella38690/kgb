@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Specialitees
+{% block title %}Modifier la specialitées
 {% endblock %}
 
 {% block body %}
@@ -9,11 +9,13 @@
   
     
 </style>
-	<h1>Edit Specialitées</h1>
+	<h1>Modifier la specialitées</h1>
+<div class="row justify-content-center">
+<a href="{{ path('app_specialite_liste') }}" class="btn btn-dark" role="button">Retour à la liste des specialitées</a>
+</div>
+		{{ include('/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-	{{ include('/_form.html.twig', {'button_label': 'Update'}) }}
-
-	<a href="{{ path('app_specialite_liste') }}">back to list</a>
+	
   
 	
 {% endblock %}

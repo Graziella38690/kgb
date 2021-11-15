@@ -1,19 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Statut missions
+{% block title %}Modifier le statut mission
 {% endblock %}
 
 {% block body %}
 
-<style>
-  
-    
-</style>
-	<h1>Edit Statut de missions</h1>
+<div class="container">
+	<h1>Modifier le statut de mission</h1>
+<div class="row justify-content-center">
+<a href="{{ path('app_statumission_liste') }}" class="btn btn-dark" role="button">Retour à la liste des statuts de mission</a>
+</div>
+		{{ include('/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-	{{ include('/_form.html.twig', {'button_label': 'Update'}) }}
-
-	<a href="{{ path('app_statumission_liste') }}">back to list</a>
   
-	
+	</div>
 {% endblock %}

@@ -23,15 +23,19 @@
                    {{ Nationalite.nom }}
                     </th>
                    <td>
-                    <a href="{{ path('app_nationalite_remove', {'id': Nationalite.id}) }}">Delete</a>
-					<a href="{{ path('app_nationalite_edit', {'id': Nationalite.id}) }}">Modifier</a>
+                    <a href="{{ path('app_nationalite_edit', {'id': Nationalite.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+					<a href="{{ path('app_nationalite_remove', {'id': Nationalite.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
                     </td>
 			     </tr>
                 {% endfor %}
             </tbody>
         </table>
         </div>
-    <p> <a href="{{ path('app_nationalite_new') }}">New</a></p>
+        <div class="row justify-content-center">
+       
+         <a href="{{ path('app_nationalite_new') }}" class="btn btn-dark" role="button">Crée une nouvelle nationalitées</a>
+    </div>
+   
 
 {% endblock %}
  

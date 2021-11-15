@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Agents
+{% block title %}Nouveau agent
 {% endblock %}
 
 {% block body %}
-	<h1>Create new Agents</h1>
-
+	<h1>Crer un agents</h1>
+<div class="row justify-content-center">
+<a href="{{ path('app_agent_liste') }}" class="btn btn-dark" role="button">Retour à la liste des agents</a>
+</div>
 {{ include('/_form.html.twig') }}
-	<a href="{{ path('app_agent_liste') }}">back to list</a>
+
 {% endblock %}

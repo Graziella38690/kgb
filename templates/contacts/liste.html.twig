@@ -31,15 +31,20 @@
                     <td>{{Contacts.nationalite.nom}}</td>
 
                     <td>
-                    <a href="{{ path('app_contact_remove', {'id': Contacts.id}) }}">Delete</a>
-					<a href="{{ path('app_contact_edit', {'id': Contacts.id}) }}">Modifier</a>
+                    <a href="{{ path('app_contact_edit', {'id': Contacts.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+ <a href="{{ path('app_contact_remove', {'id': Contacts.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
+                   
+					
                     </td>
 			     </tr>
                 {% endfor %}
             </tbody>
         </table>
          </div>
-    <p> <a href="{{ path('app_contact_new') }}">New</a></p>
+   <div class="row justify-content-center">
+        
+         <a href="{{ path('app_contact_new') }}" class="btn btn-dark" role="button">Crée un contact</a>
+    </div>
 
 {% endblock %}
  

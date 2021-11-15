@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Missions
+{% block title %}Modifier la mission
 {% endblock %}
 
 {% block body %}
-	<h1>Edit Missions</h1>
+	<h1>Modifier la mission</h1>
+<div class="row justify-content-center">
+<a href="{{ path('app_liste') }}" class="btn btn-dark" role="button">Retour à la liste des missions</a>
+</div>
+	{{ include('/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-	{{ include('_form.html.twig', {'button_label': 'Update'}) }}
-
-	<a href="{{ path('app_liste') }}">back to list</a>
-
-	
 {% endblock %}

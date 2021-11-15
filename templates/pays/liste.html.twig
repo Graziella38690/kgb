@@ -6,7 +6,7 @@
 
 
  <div class="container">
- <h1>Liste des Pays</h1>
+ <h1>Liste des pays</h1>
  <table class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -27,15 +27,19 @@
 					
                     </td>
                    <td>
-                    <a href="{{ path('app_pays_remove', {'id': Pays.id}) }}">Delete</a>
-					<a href="{{ path('app_pays_edit', {'id': Pays.id}) }}">Modifier</a>
+                    <a href="{{ path('app_pays_edit', {'id': Pays.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+                    <a href="{{ path('app_pays_remove', {'id': Pays.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
                     </td>
 			     </tr>
                 {% endfor %}
             </tbody>
         </table>
          </div>
-    <p> <a href="{{ path('app_pays_new') }}">New</a></p>
+          <div class="row justify-content-center">
+       
+         <a href="{{ path('app_pays_new') }}" class="btn btn-dark" role="button">Crée un nouveau pays</a>
+    </div>
+   
 
 {% endblock %}
  

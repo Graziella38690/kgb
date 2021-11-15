@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Contacts
+{% block title %}Modifier Contact
 {% endblock %}
 
 {% block body %}
@@ -9,11 +9,12 @@
   
     
 </style>
-	<h1>Edit Missions</h1>
-
-	{{ include('/_form.html.twig', {'button_label': 'Update'}) }}
-
-	<a href="{{ path('app_contact_liste') }}">back to list</a>
+	<h1>Modifier contact</h1>
+<div class="row justify-content-center">
+<a href="{{ path('app_contact_liste') }}" class="btn btn-dark" role="button">Retour à la liste des contacts</a>
+</div>
+	{{ include('/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+	
   
 	
 {% endblock %}

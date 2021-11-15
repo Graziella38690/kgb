@@ -32,15 +32,19 @@
                     
 
                     <td>
-                    <a href="{{ path('app_planque_remove', {'id': Planques.id}) }}">Delete</a>
-					<a href="{{ path('app_planque_edit', {'id': Planques.id}) }}">Modifier</a>
+                    <a href="{{ path('app_planque_edit', {'id': Planques.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+                    <a href="{{ path('app_planque_remove', {'id': Planques.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
                     </td>
 			     </tr>
                 {% endfor %}
             </tbody>
         </table>
         </div>
-    <p> <a href="{{ path('app_planque_new') }}">New</a></p>
+        <div class="row justify-content-center">
+       
+         <a href="{{ path('app_planque_new') }}" class="btn btn-dark" role="button">Crée une nouvelle planque</a>
+    </div>
+    
 
 {% endblock %}
  

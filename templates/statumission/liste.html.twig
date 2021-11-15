@@ -22,15 +22,22 @@
                     </th>
                     
                     <td>
-                    <a href="{{ path('app_statumission_remove', {'id': Statumission.id}) }}">Delete</a>
-					<a href="{{ path('app_statumission_edit', {'id': Statumission.id}) }}">Modifier</a>
+                    <a href="{{ path('app_statumission_edit', {'id': Statumission.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+                    <a href="{{ path('app_statumission_remove', {'id': Statumission.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
                     </td>
 			     </tr>
                 {% endfor %}
+              
             </tbody>
         </table>
+           <div class="row justify-content-center">
+        
+         <a href="{{ path('app_statumission_new') }}" class="btn btn-dark" role="button">Ajout d'un nouveau statut de mission</a>
+    </div>
         </div>
-    <p> <a href="{{ path('app_statumission_new') }}">New</a></p>
+
+
+
 
 {% endblock %}
  

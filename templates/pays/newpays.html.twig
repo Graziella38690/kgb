@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Cibles
+{% block title %}Crer un nouveau pays
 {% endblock %}
 
 {% block body %}
-	<h1>Create new Pays</h1>
-
+	<h1>Crer un nouveau pays</h1>
+<div class="row justify-content-center">
+<a href="{{ path('app_pays_liste') }}" class="btn btn-dark" role="button">Retour à la liste des pays</a>
+</div>
 {{ include('/_form.html.twig') }}
-<p><h4><a href="{{ path('app_nationalite_new') }}">Ajouter une nationalitées</a></h4></p>
-	<a href="{{ path('app_pays_liste') }}">back to list</a>
+
 {% endblock %}

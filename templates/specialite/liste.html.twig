@@ -23,15 +23,18 @@
                     </th>
                     
                     <td>
-                    <a href="{{ path('app_specialite_remove', {'id': Specialite.id}) }}">Delete</a>
-					<a href="{{ path('app_specialite_edit', {'id': Specialite.id}) }}">Modifier</a>
+                    <a href="{{ path('app_specialite_edit', {'id': Specialite.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+ <a href="{{ path('app_specialite_remove', {'id': Specialite.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
                     </td>
 			     </tr>
                 {% endfor %}
             </tbody>
         </table>
          </div>
-    <p> <a href="{{ path('app_specialite_new') }}">New</a></p>
+         <div class="row justify-content-center">
+         <a href="{{ path('app_specialite_new') }}" class="btn btn-dark" role="button">Crée une nouvelle specialitées</a>
+    </div>
+  
 
 {% endblock %}
  

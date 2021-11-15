@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New statutmissions
+{% block title %}Crer un nouveau statut de mission
 {% endblock %}
 
 {% block body %}
-	<h1>Create new statutmissions</h1>
 
+	<h1>Crer un nouveau statut de mission</h1>
+<div class="row justify-content-center">
+<a href="{{ path('app_statumission_liste') }}" class="btn btn-dark" role="button">Retour à la liste des statuts de mission</a>
+</div>
 {{ include('/_form.html.twig') }}
-	<a href="{{ path('app_statumission_liste') }}">back to list</a>
+
+	
+
 {% endblock %}

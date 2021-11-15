@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier la nationalitées
+{% block title %}Modifier l'administrateur
 {% endblock %}
 
 {% block body %}
@@ -9,10 +9,10 @@
   
     
 </style>
-	<h1>Modifier la nationalitées</h1>
+	<h1>Modifier l'administrateur</h1>
 	
 <div class="row justify-content-center">
-<a href="{{ path('app_nationalite_liste') }}" class="btn btn-dark" role="button">Retour à la liste des Nationalitées</a>
+<a href="{{ path('app_user_liste') }}" class="btn btn-dark" role="button">Retour à la liste des administrateurs</a>
 </div>
 	{{ include('/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
