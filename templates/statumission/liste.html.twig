@@ -6,6 +6,7 @@
 
  <div class="container">
  <h1>Liste des statuts de mission</h1>
+ <h3>Nombres de statut de mission : ({{Statumission.getTotalItemCount }})</h3>
  <table class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -30,6 +31,9 @@
               
             </tbody>
         </table>
+        <div class="row justify-content-center">
+        {{ knp_pagination_render(Statumission) }}
+        </div>
            <div class="row justify-content-center">
         
          <a href="{{ path('app_statumission_new') }}" class="btn btn-dark" role="button">Ajout d'un nouveau statut de mission</a>

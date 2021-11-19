@@ -7,6 +7,7 @@
  
 <div class="container">
 <h1>Liste des specialitées</h1>
+<h3>Nombres de specialitées : ({{Specialite.getTotalItemCount }})</h3>
  <table class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -31,6 +32,10 @@
             </tbody>
         </table>
          </div>
+         <div class="row justify-content-center">
+        {{ knp_pagination_render(Specialite) }}
+        </div>
+
          <div class="row justify-content-center">
          <a href="{{ path('app_specialite_new') }}" class="btn btn-dark" role="button">Crée une nouvelle specialitées</a>
     </div>

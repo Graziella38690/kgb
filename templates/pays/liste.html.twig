@@ -7,6 +7,7 @@
 
  <div class="container">
  <h1>Liste des pays</h1>
+ <h3>Nombres de pays : ({{Pays.getTotalItemCount }})</h3>
  <table class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -34,6 +35,9 @@
                 {% endfor %}
             </tbody>
         </table>
+        <div class="row justify-content-center">
+        {{ knp_pagination_render(Pays) }}
+        </div>
          </div>
           <div class="row justify-content-center">
        
