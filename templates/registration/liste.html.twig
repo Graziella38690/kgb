@@ -37,7 +37,7 @@
                    {{ User.datecreation|date('d/m/Y')}}
                     </th>
 <td>
-                    <a href="{{ path('app_user_edit', {'id': User.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+                    <a href="{{ path('app_user_edit', {'id': User.id}) }}" class="btn btn-secondary" role="button">Modifier</a>
 					<a href="{{ path('app_user_remove', {'id': User.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
                     </td>
 
@@ -47,7 +47,7 @@
         </table>
         
   <div class="row justify-content-center">
-         <a href="{{ path('app_register') }}" class="btn btn-dark" role="button">Crer un administrateur</a>
+         <a href="{{ path('app_register') }}" class="btn btn-secondary" role="button">Crer un administrateur</a>
     </div>
 
 {% endblock %}

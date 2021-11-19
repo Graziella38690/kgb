@@ -32,7 +32,7 @@
                     <td>{{Contacts.nationalite.nom}}</td>
 
                     <td>
-                    <a href="{{ path('app_contact_edit', {'id': Contacts.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+                    <a href="{{ path('app_contact_edit', {'id': Contacts.id}) }}" class="btn btn-secondary" role="button">Modifier</a>
  <a href="{{ path('app_contact_remove', {'id': Contacts.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
                    
 					
@@ -47,7 +47,7 @@
          </div>
    <div class="row justify-content-center">
         
-         <a href="{{ path('app_contact_new') }}" class="btn btn-dark" role="button">Crée un contact</a>
+         <a href="{{ path('app_contact_new') }}" class="btn btn-secondary" role="button">Crée un contact</a>
     </div>
 
 {% endblock %}

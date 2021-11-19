@@ -32,7 +32,7 @@
                     <td>{{Cibles.nationalite.nom}}</td>
 
                     <td>
-                    <a href="{{ path('app_cible_edit', {'id': Cibles.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+                    <a href="{{ path('app_cible_edit', {'id': Cibles.id}) }}" class="btn btn-secondary" role="button">Modifier</a>
                     <a href="{{ path('app_cible_remove', {'id': Cibles.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
 
                   
@@ -47,7 +47,7 @@
          </div>
          <div class="row justify-content-center">
          
-         <a href="{{ path('app_cible_new') }}" class="btn btn-dark" role="button">Crer une cible</a>
+         <a href="{{ path('app_cible_new') }}" class="btn btn-secondary" role="button">Crer une cible</a>
     </div>
    
 {% endblock %}

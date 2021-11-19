@@ -24,8 +24,10 @@
                    {{ Typeplanque.nom }}
                     </th>
                     <td>
-                    <a href="{{ path('app_typeplanque_remove', {'id': Typeplanque.id}) }}">Delete</a>
-					<a href="{{ path('app_typeplanque_edit', {'id': Typeplanque.id}) }}">Modifier</a>
+                    <a href="{{ path('app_typeplanque_edit', {'id': Typeplanque.id}) }}" class="btn btn-secondary" role="button">Modifier</a>
+                    <a href="{{ path('app_typeplanque_remove', {'id': Typeplanque.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
+
+     
                     </td>
 			     </tr>
                 {% endfor %}
@@ -35,5 +37,9 @@
         {{ knp_pagination_render(Typeplanque) }}
         </div>
         </div>
-        <h4><p> <a href="{{ path('app_typeplanque_new') }}">Crée un nouveau type de planque</a></p></h4>
+         <div class="row justify-content-center">
+         
+         <a href="{{ path('app_typeplanque_new') }}" class="btn btn-secondary" role="button">Crée un nouveau type de mission</a>
+    </div>
+      
 {% endblock %}

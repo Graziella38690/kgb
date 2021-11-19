@@ -100,7 +100,7 @@
                     {% if is_granted('ROLE_ADMIN') %}
                    <div class="row justify-content-center">
                     <a href="{{ path('app_remove', {'id': Missions.id}) }}" class="btn btn-danger" role="button">Supprimer la mission</a>
-                    <a href="{{ path('app_missions_edit', {'id': Missions.id}) }}" class="btn btn-dark" role="button">Modifier</a>
+                    <a href="{{ path('app_missions_edit', {'id': Missions.id}) }}" class="btn btn-secondary" role="button">Modifier</a>
                     </div>
                     {% endif %}
                 {% endfor %}
@@ -111,7 +111,7 @@
 </div>
 <div class="row justify-content-center">
 
-<a href="{{ path('app_liste') }}" class="btn btn-dark" role="button">Retour à la liste des missions</a>
+<a href="{{ path('app_liste') }}" class="btn btn-secondary" role="button">Retour à la liste des missions</a>
 </div>
 {% endblock %}
 
