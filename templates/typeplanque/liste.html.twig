@@ -24,7 +24,7 @@
                    {{ Typeplanque.nom }}
                     </th>
                     <td>
-                    <a href="{{ path('app_typeplanque_edit', {'id': Typeplanque.id}) }}" class="btn btn-secondary" role="button">Modifier</a>
+                    <a href="{{ path('app_typeplanque_edit', {'id': Typeplanque.id}) }}" class="btn btn-warning" role="button">Modifier</a>
                     <a href="{{ path('app_typeplanque_remove', {'id': Typeplanque.id}) }}" class="btn btn-danger" role="button">Supprimer</a>
 
      
@@ -39,7 +39,7 @@
         </div>
          <div class="row justify-content-center">
          
-         <a href="{{ path('app_typeplanque_new') }}" class="btn btn-secondary" role="button">Crée un nouveau type de mission</a>
+         <a href="{{ path('app_typeplanque_new') }}" class="btn btn-success" role="button">Crée un nouveau type de mission</a>
     </div>
       
 {% endblock %}
