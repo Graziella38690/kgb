@@ -23,13 +23,13 @@ class MissionsController extends AbstractController
 {
     /**
      * Liste mission
-     * @Route("/missions/liste", name="app_liste", methods={"GET"})
+     * @Route("/", name="app_liste", methods={"GET"})
      * 
      
      * @return Response
     
      */
-    public function liste(Request $request, PaginatorInterface $paginator): Response
+    public function index(Request $request, PaginatorInterface $paginator): Response
     {
         $em = $this->getDoctrine()->getManager();
         $Missions = $em->getRepository(Missions::class)->findAll();
