@@ -41,7 +41,7 @@ class MissionsController extends AbstractController
             limit:5 // Nombre de résultats par page
         );
 
-        return $this->render('Missions/liste.html.twig', [
+        return $this->render('missions/liste.html.twig', [
             'Missions' => $Missions,
         ]);   
     }     
