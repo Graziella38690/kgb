@@ -23,7 +23,7 @@ class MissionsController extends AbstractController
 {
     /**
      * Liste mission
-     * @Route("/", name="app_liste", methods={"GET"})
+     * @Route("/missions", name="app_liste", methods={"GET"})
      * 
      
      * @return Response
