@@ -23,7 +23,7 @@ class MissionsController extends AbstractController
 {
     /**
      * Liste mission
-     * @Route("/missions", name="app_liste", methods={"GET"})
+     * @Route("/", name="app_liste", methods={"GET"})
      * 
      
      * @return Response
@@ -41,7 +41,7 @@ class MissionsController extends AbstractController
             limit:5 // Nombre de résultats par page
         );
 
-        return $this->render('missions/liste.html.twig', [
+        return $this->render('missions/index.html.twig', [
             'Missions' => $Missions,
         ]);   
     }     
