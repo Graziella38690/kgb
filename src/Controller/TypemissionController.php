@@ -58,7 +58,7 @@ public function new(Request $request)
 
         return $this->redirectToRoute('app_typemission_liste');
     }
-    return $this->render('Typemission/newtypemission.html.twig', [
+    return $this->render('typemission/newtypemission.html.twig', [
         
         'typemission' => $Typemission,
         'form' => $form->createView(),

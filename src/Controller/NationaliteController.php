@@ -31,7 +31,7 @@ class NationaliteController extends AbstractController
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
             limit:5 // Nombre de résultats par page
         );
-        return $this->render('Nationalite/liste.html.twig', [
+        return $this->render('nationalite/liste.html.twig', [
             'Nationalite' => $Nationalite,
         ]);   
     }     
