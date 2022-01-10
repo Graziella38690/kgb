@@ -32,7 +32,7 @@ class AgentsController extends AbstractController
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
             limit:5// Nombre de résultats par page
         );
-        return $this->render('Agents/liste.html.twig', [
+        return $this->render('agents/liste.html.twig', [
             'Agents' => $Agents,
         ]);   
     }     
