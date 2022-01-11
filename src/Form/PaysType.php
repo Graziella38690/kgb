@@ -26,7 +26,7 @@ class PaysType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('nationalite', EntityType::class, [
+            ->add('Nationalite', EntityType::class, [
                 'choice_label' => 'nom', 
                 'class' => Nationalite::class,
                 'multiple' => false,
