@@ -58,7 +58,7 @@ public function new(Request $request)
 
         return $this->redirectToRoute('app_statumission_liste');
     }
-    return $this->render('statumission/newStatumission.html.twig', [
+    return $this->render('statumission/newstatumission.html.twig', [
         
         'statumission' => $Statumission,
         'form' => $form->createView(),

@@ -175,4 +175,14 @@ class Agents
 
         return $this;
     }
+    public function displaySpecialite()
+    {
+        $agentsSkills = $this->Specialite;
+        $SpecialiteList = [];
+
+        foreach ($agentsspecialite as $specialite) {
+            $SpecialiteList[] = $Specialite->getName();
+        }
+        return $SpecialiteList;
+    }
 }

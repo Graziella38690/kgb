@@ -36,7 +36,7 @@ class Pays
     private $Nationalite;
 
     /**
-     * @ORM\OneToMany(targetEntity=Planques::class, mappedBy="pays")
+     * @ORM\OneToMany(targetEntity=Pays::class, mappedBy="pays")
      */
     private $pays;
 

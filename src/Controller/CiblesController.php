@@ -12,7 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
-
 class CiblesController extends AbstractController
 {
     /**
