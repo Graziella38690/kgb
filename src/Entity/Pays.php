@@ -42,6 +42,7 @@ class Pays
 
     /**
      * @ORM\OneToMany(targetEntity=Planques::class, mappedBy="Pays")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $planques;
 
