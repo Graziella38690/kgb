@@ -30,9 +30,9 @@
                     <td>{{ Agents.nom }}</td>
                     <td>{{ Agents.prenom }}</td>
                     <td>{{Agents.datedenaissance|date('d/m/Y')}}</td>
-                    <td>{{Agents.nationalite}}</td>
+                    <td>{{Agents.nationalite.nom}}</td>
  <td>
-					{% for Specialite in Agents.specialite %}
+					{% for Specialite in Agents.Specialite %}
 						<li>{{Specialite.nom}}</li>
 					{% endfor %}
 				    </td>
