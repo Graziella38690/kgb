@@ -33,7 +33,7 @@ class ContactsController extends AbstractController
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
             limit:10 // Nombre de résultats par page
         );
-        return $this->render('Contacts/liste.html.twig', [
+        return $this->render('contacts/liste.html.twig', [
             'Contacts' => $Contacts,
         ]);   
     }     

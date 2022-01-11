@@ -33,7 +33,7 @@ class PlanquesController extends AbstractController
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
             limit:5 // Nombre de résultats par page
         );
-        return $this->render('Planques/liste.html.twig', [
+        return $this->render('planques/liste.html.twig', [
             'Planques' => $Planques,
         ]);   
     }     
@@ -56,7 +56,7 @@ public function new(Request $request)
 
         return $this->redirectToRoute('app_planque_liste');
     }
-    return $this->render('Planques/newplanques.html.twig', [
+    return $this->render('planques/newplanques.html.twig', [
         
         'planques' => $Planques,
         'form' => $form->createView(),

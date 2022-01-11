@@ -60,7 +60,7 @@ class MissionsController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $Missions = $em->getRepository(Missions::class)->findBy(['id' => $id]);
             
-            return $this->render('Missions/details.html.twig', [
+            return $this->render('missions/details.html.twig', [
                 'Missions' => $Missions,
             ]);   
         }     

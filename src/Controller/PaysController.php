@@ -108,7 +108,7 @@ public function edit(Request $request, Pays $Pays): Response
         return $this->redirectToRoute('app_pays_liste');
     }
 
-    return $this->render('Pays/editpays.html.twig', [
+    return $this->render('pays/editpays.html.twig', [
         'pays' => $Pays,
         'form' => $form->createView(),
     ]);

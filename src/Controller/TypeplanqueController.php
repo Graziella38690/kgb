@@ -58,7 +58,7 @@ public function new(Request $request)
 
         return $this->redirectToRoute('app_typeplanque_liste');
     }
-    return $this->render('Typeplanque/newtypeplanque.html.twig', [
+    return $this->render('typeplanque/newtypeplanque.html.twig', [
         
         'typeplanque' => $Typeplanque,
         'form' => $form->createView(),

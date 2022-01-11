@@ -33,7 +33,7 @@ class CiblesController extends AbstractController
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
             limit:5 // Nombre de résultats par page
         );
-        return $this->render('Cibles/liste.html.twig', [
+        return $this->render('cibles/liste.html.twig', [
             'Cibles' => $Cibles,
         ]);   
     }     
