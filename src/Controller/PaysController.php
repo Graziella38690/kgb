@@ -64,7 +64,7 @@ public function new(Request $request)
 
 
  /**
-         * supprimer une pays
+         * supprimer un pays
          * @Route("admin/pays/remove/{id}", name="app_pays_remove", methods={"GET"})
          * 
          

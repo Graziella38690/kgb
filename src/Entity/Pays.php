@@ -31,7 +31,7 @@ class Pays
 
     /**
      * @ORM\OneToOne(targetEntity=Nationalite::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=right)
      */
     private $Nationalite;
 
