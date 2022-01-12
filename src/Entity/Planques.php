@@ -41,7 +41,7 @@ class Planques
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Pays::class, inversedBy="planques")
+     * @ORM\ManyToOne(targetEntity=Pays::class, inversedBy="Planques")
      */
     private $Pays;
 

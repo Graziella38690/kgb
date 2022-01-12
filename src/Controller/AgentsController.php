@@ -109,7 +109,7 @@ public function edit(Request $request, Agents $Agents): Response
     }
 
     return $this->render('agents/editagents.html.twig', [
-        'agents' => $Agents,
+        'Agents' => $Agents,
         'form' => $form->createView(),
     ]);
 }
