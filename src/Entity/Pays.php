@@ -31,7 +31,7 @@ class Pays
 
     /**
      * @ORM\OneToOne(targetEntity=Nationalite::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $Nationalite;
 
@@ -42,7 +42,7 @@ class Pays
 
     /**
      * @ORM\OneToMany(targetEntity=Planques::class, mappedBy="Pays")
-     * @ORM\JoinColumn(nullable=true)
+   
      */
     private $planques;
 
