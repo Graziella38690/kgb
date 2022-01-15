@@ -22,11 +22,7 @@ class RegistrationFormType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('mail')
-            ->add('datecreation', DateType::class,[
-                'widget' => 'choice',
-                'format' => 'd-M-y',
-                'years' => range(date("Y") - 75, date("Y") - 18)
-                ])
+            
           
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
