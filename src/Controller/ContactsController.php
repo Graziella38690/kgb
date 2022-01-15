@@ -25,13 +25,13 @@ class ContactsController extends AbstractController
      */
     public function liste(Request $request, PaginatorInterface $paginator): Response
     {
-        // Entity Manager de Symfony
+        
         $em = $this->getDoctrine()->getManager();
         $Contacts = $em->getRepository(Contacts::class)->findAll();
         $Contacts = $paginator->paginate(
-            $Contacts, // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            limit:10 // Nombre de résultats par page
+            $Contacts, 
+            $request->query->getInt('page', 1), 
+            limit:10 
         );
         return $this->render('contacts/liste.html.twig', [
             'Contacts' => $Contacts,
@@ -75,16 +75,16 @@ public function new(Request $request)
         public function remove(int $id): Response
        
         {
-        /// Entity Manager de Symfony
+       
     
         $em = $this->getDoctrine()->getManager();
     
-        // On récupère la mission qui correspond à l'id passé dans l'URL
+        
    
         $Contacts = $em->getRepository(Contacts::class)->findBy(['id' => $id])[0];
    
     
-        // L'article est supprimé
+        
     
         $em->remove($Contacts);
     

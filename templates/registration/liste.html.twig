@@ -14,6 +14,7 @@
         <th>Mots de passe</th>
         <th>nom</th>
         <th>prenom</th>
+         <th>mail</th>
         <th>Date de création</th>
         <th>Action</th>
         </tr>
@@ -32,6 +33,9 @@
                     </th>
                      <th scope="row justify-content-center">
                    {{ User.prenom}}
+                    </th>
+                     <th scope="row justify-content-center">
+                   {{ User.mail}}
                     </th>
                       <th scope="row justify-content-center">
                    {{ User.datecreation|date('d/m/Y')}}

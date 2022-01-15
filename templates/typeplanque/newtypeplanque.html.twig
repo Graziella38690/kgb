@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Planques
+{% block title %}type de Planques
 {% endblock %}
 
 {% block body %}
-	<h1>Create new Planques</h1>
+	<h1>Creer un nouveau type de Planques</h1>
+<div class="row justify-content-center">
 
+<a href="{{ path('app_typeplanque_liste') }}"class="btn btn-success" role="button">Retour à la liste des types de planques</a></p></h4>
+</div>
 {{ include('/_form.html.twig') }}
- <h4><p> <a href="{{ path('app_typeplanque_liste') }}">Retour à la liste des types de planques</a></p></h4>
-
 {% endblock %}
+
+

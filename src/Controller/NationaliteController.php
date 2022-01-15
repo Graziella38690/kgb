@@ -23,7 +23,7 @@ class NationaliteController extends AbstractController
      */
     public function liste(Request $request, PaginatorInterface $paginator): Response
     {
-        // Entity Manager de Symfony
+      
         $em = $this->getDoctrine()->getManager();
         $Nationalite = $em->getRepository(Nationalite::class)->findAll();
         $Nationalite = $paginator->paginate(
@@ -73,16 +73,16 @@ public function new(Request $request)
         public function remove(int $id): Response
        
         {
-        /// Entity Manager de Symfony
+       
     
         $em = $this->getDoctrine()->getManager();
     
-        // On récupère la mission qui correspond à l'id passé dans l'URL
+        
    
         $Nationalite = $em->getRepository(Nationalite::class)->findBy(['id' => $id])[0];
    
     
-        // L'article est supprimé
+        
     
         $em->remove($Nationalite);
     

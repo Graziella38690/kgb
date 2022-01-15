@@ -21,6 +21,7 @@ class RegistrationFormType extends AbstractType
             ->add('username')
             ->add('nom')
             ->add('prenom')
+            ->add('mail')
             ->add('datecreation', DateType::class,[
                 'widget' => 'choice',
                 'format' => 'd-M-y',
@@ -38,7 +39,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'votre mot de passe doit contenir au minimum {{ limit }} caractere',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),

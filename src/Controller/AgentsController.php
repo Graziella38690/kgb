@@ -1,7 +1,5 @@
 <?php
 namespace App\Controller;
-
-
 use App\Entity\Agents;
 use App\Form\AgentsType;
 use App\Repository\AgentsRepository;
@@ -24,13 +22,13 @@ class AgentsController extends AbstractController
      */
     public function liste(Request $request, PaginatorInterface $paginator): Response
     {
-        // Entity Manager de Symfony
+        
         $em = $this->getDoctrine()->getManager();
         $Agents = $em->getRepository(Agents::class)->findAll();
         $Agents = $paginator->paginate(
-            $Agents, // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            limit:5// Nombre de résultats par page
+            $Agents, 
+            $request->query->getInt('page', 1),
+            limit:5
         );
         return $this->render('agents/liste.html.twig', [
             'Agents' => $Agents,
@@ -64,7 +62,7 @@ public function new(Request $request)
 
 
  /**
-         * supprimer une mission
+         * supprimer un agent
          * @Route("admin/agent/remove/{id}", name="app_agent_remove", methods={"GET"})
          * 
          
@@ -74,24 +72,11 @@ public function new(Request $request)
         public function remove(int $id): Response
        
         {
-        /// Entity Manager de Symfony
-    
         $em = $this->getDoctrine()->getManager();
-    
-        // On récupère la mission qui correspond à l'id passé dans l'URL
-   
         $Agents = $em->getRepository(Agents::class)->findBy(['id' => $id])[0];
-   
-    
-        // L'article est supprimé
-    
         $em->remove($Agents);
-    
         $em->flush();
-    
-    
         return $this->redirectToRoute('app_agent_liste');
-    
         }
 
 /**
@@ -113,5 +98,4 @@ public function edit(Request $request, Agents $Agents): Response
         'form' => $form->createView(),
     ]);
 }
-
 }

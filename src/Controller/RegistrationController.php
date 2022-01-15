@@ -53,7 +53,7 @@ class RegistrationController extends AbstractController
      */
     public function liste(): Response
     {
-        // Entity Manager de Symfony
+        
         $em = $this->getDoctrine()->getManager();
         $User = $em->getRepository(User::class)->findAll();
         
@@ -73,16 +73,15 @@ class RegistrationController extends AbstractController
         public function remove(int $id): Response
        
         {
-        /// Entity Manager de Symfony
+      
     
         $em = $this->getDoctrine()->getManager();
     
-        // On récupère la mission qui correspond à l'id passé dans l'URL
+        
    
         $User = $em->getRepository(User::class)->findBy(['id' => $id])[0];
    
     
-        // L'article est supprimé
     
         $em->remove($User);
     

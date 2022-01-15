@@ -24,14 +24,14 @@ class PlanquesController extends AbstractController
      */
     public function liste(Request $request, PaginatorInterface $paginator): Response
     {
-        // Entity Manager de Symfony
+        
         $em = $this->getDoctrine()->getManager();
         $Planques = $em->getRepository(Planques::class)->findAll();
         
         $Planques = $paginator->paginate(
-            $Planques, // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            limit:5 // Nombre de résultats par page
+            $Planques,
+            $request->query->getInt('page', 1),
+            limit:5 
         );
         return $this->render('planques/liste.html.twig', [
             'Planques' => $Planques,

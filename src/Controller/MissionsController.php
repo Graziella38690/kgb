@@ -36,9 +36,9 @@ class MissionsController extends AbstractController
     
 
         $Missions = $paginator->paginate(
-            $Missions, // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            limit:5 // Nombre de résultats par page
+            $Missions, 
+            $request->query->getInt('page', 1), 
+            limit:5 
         );
 
         return $this->render('missions/index.html.twig', [
@@ -56,7 +56,7 @@ class MissionsController extends AbstractController
          */
     public function details(int $id): Response
         {
-            // Entity Manager de Symfony
+            
             $em = $this->getDoctrine()->getManager();
             $Missions = $em->getRepository(Missions::class)->findBy(['id' => $id]);
             
@@ -75,16 +75,16 @@ class MissionsController extends AbstractController
         public function remove(int $id): Response
        
         {
-        /// Entity Manager de Symfony
+        
     
         $em = $this->getDoctrine()->getManager();
     
-        // On récupère la mission qui correspond à l'id passé dans l'URL
+        
    
         $Missions = $em->getRepository(Missions::class)->findBy(['id' => $id])[0];
    
     
-        // L'article est supprimé
+        
     
         $em->remove($Missions);
     
