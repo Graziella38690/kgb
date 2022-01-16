@@ -431,7 +431,7 @@ CREATE TABLE `statumission` (
 
 LOCK TABLES `statumission` WRITE;
 /*!40000 ALTER TABLE `statumission` DISABLE KEYS */;
-INSERT INTO `statumission` VALUES (1,'en cours'),(2,'terminé');
+INSERT INTO `statumission` VALUES (1,'en cours'),(2,'terminÃ©');
 /*!40000 ALTER TABLE `statumission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -524,3 +524,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-01-15 16:44:15
+cc53vsqwdfr613hv
