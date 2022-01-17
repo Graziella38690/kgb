@@ -31,14 +31,20 @@ class ContactsController extends AbstractController
         $Contacts = $paginator->paginate(
             $Contacts, 
             $request->query->getInt('page', 1), 
-            limit:10 
+            limit:5
         );
         return $this->render('contacts/liste.html.twig', [
             'Contacts' => $Contacts,
         ]);   
     }     
 
-       
+      
+    
+
+
+
+
+    
 /**
   * @Route("admin/contacts/new", name="app_contact_new", methods={"GET","POST"})
  */
